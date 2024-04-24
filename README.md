@@ -52,3 +52,6 @@ CREATE TABLE tb_pagamento(
     pedido INT,
     CONSTRAINT ped_fk FOREIGN KEY (pedido) REFERENCES tb_pedido(id_ped_pk)
 );
+
+
+teste para ver se consigo fazer pullrequest
