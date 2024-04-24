@@ -36,7 +36,7 @@ public class login_VIEW extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
         btn_login = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_recuperar_senha = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
         txt_senha = new javax.swing.JPasswordField();
 
@@ -55,7 +55,12 @@ public class login_VIEW extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Esqueceu a senha");
+        btn_recuperar_senha.setText("Esqueceu a senha");
+        btn_recuperar_senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_recuperar_senhaActionPerformed(evt);
+            }
+        });
 
         btn_sair.setText("sair");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +78,7 @@ public class login_VIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton2)
+                        .addComponent(btn_recuperar_senha)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_sair)
@@ -107,7 +112,7 @@ public class login_VIEW extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jButton2)
+                .addComponent(btn_recuperar_senha)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_login)
@@ -126,6 +131,12 @@ public class login_VIEW extends javax.swing.JFrame {
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_sairActionPerformed
+
+    private void btn_recuperar_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recuperar_senhaActionPerformed
+            alterar_Login_VIEW telaAlterar = new alterar_Login_VIEW();
+            telaAlterar.setLocationRelativeTo(null);
+            telaAlterar.setVisible(true);
+    }//GEN-LAST:event_btn_recuperar_senhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,8 +175,8 @@ public class login_VIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
+    private javax.swing.JButton btn_recuperar_senha;
     private javax.swing.JButton btn_sair;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -178,6 +189,7 @@ public class login_VIEW extends javax.swing.JFrame {
             String usuario="", senha="";
         
                 usuario_DTO objdto = new usuario_DTO();
+                
                 usuario = txt_usuario.getText();
                 senha = new String(txt_senha.getPassword());
 
@@ -185,6 +197,7 @@ public class login_VIEW extends javax.swing.JFrame {
                 objdto.getSenha(senha);
                 
                 usuario_DAO objusuarioDAO = new usuario_DAO();
+                
                 ResultSet rsusuariodao = objusuarioDAO.autenticacaoUsuario(objdto);
                 
                 if (rsusuariodao.next()) {

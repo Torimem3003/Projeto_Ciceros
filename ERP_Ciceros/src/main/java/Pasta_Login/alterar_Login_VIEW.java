@@ -12,6 +12,8 @@ import java.sql.ResultSet;
  */
 public class alterar_Login_VIEW extends javax.swing.JFrame {
 
+    usuario_DTO objusuarioDTO = new usuario_DTO();
+    
     /**
      * Creates new form alterar_Login_VIEW
      */
@@ -38,8 +40,10 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         btn_salvar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txt_senha = new javax.swing.JTextField();
-        txt_confirma_senha = new javax.swing.JTextField();
+        txt_resposta = new javax.swing.JTextField();
+        txt_senha = new javax.swing.JPasswordField();
+        txt_confirmacao_senha = new javax.swing.JPasswordField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +81,14 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
 
         jLabel5.setText("Conf: senha");
 
+        txt_resposta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_respostaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Resposta");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,14 +103,17 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txt_confirma_senha))
+                                        .addComponent(txt_confirmacao_senha))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel6))
                                         .addGap(18, 18, 18)
-                                        .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_resposta)
+                                            .addComponent(txt_senha, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
                                 .addGap(53, 53, 53)
-                                .addComponent(btn_salvar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btn_salvar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 4, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -134,25 +149,29 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_resposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txt_confirma_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_salvar)
-                        .addGap(37, 37, 37))))
+                        .addComponent(jLabel4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(txt_confirmacao_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_salvar)
+                                .addGap(37, 37, 37))))
+                    .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -163,19 +182,51 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_usuarioActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-        // TODO add your handling code here:
+         
+        usuario_DTO objDTO = new usuario_DTO();
+        
+        String senha="",confirmacao_senha="",resposta="",resposta_do_bd = objusuarioDTO.setResposta();
+        
+        int id = objusuarioDTO.setChave_primaria();
+         
+         senha = new String(txt_senha.getPassword());
+         confirmacao_senha = new String(txt_confirmacao_senha.getPassword());  
+         resposta = txt_resposta.getText();
+         
+         objDTO.getSenha(senha);
+         objDTO.getResposta(resposta);
+         objDTO.getChave_primaria(id);
+         
+         if (resposta_do_bd.equals(resposta)) {
+                if (senha.equals(confirmacao_senha)) {
+
+                usuario_DAO objDAO = new usuario_DAO();
+                objDAO.alterarSenha(objDTO);
+            }
+        }
+         
+        
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         String usuario;
         
-        usuario = txt_usuario.getText();
-        usuario_DTO objusuarioDTO = new usuario_DTO();
         
-        objusuarioDTO.getUsusario(usuario);
-          
+        usuario = txt_usuario.getText();   
+        
+        usuario_DAO objDAO = new usuario_DAO();
+        
+        objusuarioDTO = objDAO.consultarUsuario(usuario);
+        
+        txt_pergunta.setText(objusuarioDTO.setPergunta());
+        
+       
         
     }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void txt_respostaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_respostaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_respostaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,10 +271,12 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txt_confirma_senha;
+    private javax.swing.JPasswordField txt_confirmacao_senha;
     private javax.swing.JTextArea txt_pergunta;
-    private javax.swing.JTextField txt_senha;
+    private javax.swing.JTextField txt_resposta;
+    private javax.swing.JPasswordField txt_senha;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
 }

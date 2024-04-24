@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class usuario_DAO {
-    
-    
+    Connection conn = new ConexaoDAO().conectaBD();
+    PreparedStatement pstm;
     
     
     public ResultSet autenticacaoUsuario(usuario_DTO usuariodto){
@@ -18,8 +18,8 @@ public class usuario_DAO {
         
         try {
             String sql = "SELECT * FROM tb_login WHERE usuario =? and senha = ?";
-             Connection conn = new ConexaoDAO().conectaBD();
-            PreparedStatement pstm  = conn.prepareStatement(sql);
+             
+             pstm  = conn.prepareStatement(sql);
             
             pstm.setString(1, usuariodto.setUsusario());
             pstm.setString(2, usuariodto.setSenha());
@@ -38,8 +38,8 @@ public class usuario_DAO {
         try {
             String sql = "INSERT INTO tb_login (usuario, senha, pergunta, resposta) VALUES (?,?,?,?)";
             
-             Connection conn = new ConexaoDAO().conectaBD();
-            PreparedStatement pstm = conn.prepareStatement(sql);
+             
+            pstm = conn.prepareStatement(sql);
             
             pstm.setString(1, objusuariodto.setUsusario());
             pstm.setString(2, objusuariodto.setSenha());
@@ -57,36 +57,48 @@ public class usuario_DAO {
     }
     
     
-    public String consultarUsuario(String usuario){
+    public usuario_DTO consultarUsuario(String usuario){
         
         //Testar se esse código funciona caso não arrumar
+        usuario_DTO objdto = new usuario_DTO();
         
-        String sql = "select pergunta from tb_login where usuario =?";
-        Connection conn = new ConexaoDAO().conectaBD();
+        String sql = "select * from tb_login where usuario = ?";
         
         try {
-            
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1,usuario);
-            ResultSet rs =pstm.executeQuery();
-            String resultado_do_Banco = "";
-            
-            while(rs.next()){
-                String pergunta="";
-                pergunta = rs.getString(pergunta);
-                
-                resultado_do_Banco = pergunta;
-            }
-            
-            return resultado_do_Banco;
+         pstm = conn.prepareStatement(sql);
+         pstm.setString(1, usuario);
+         
+         ResultSet rs = pstm.executeQuery();
+         if(rs.next()){
+         objdto.getPergunta(rs.getString("pergunta"));  
+         objdto.getResposta(rs.getString("resposta"));
+         objdto.getChave_primaria(rs.getInt("id_log_pk"));
+         }
+         return objdto;
             
         } catch (SQLException erro) {
             
-            JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao salvar os dados: " +  erro);
+            JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao consultar o usuario: " +  erro);
             return null;
         }
         
 
         
     }
+    
+    
+    public void alterarSenha(usuario_DTO objDTO){
+        try {
+         String sql = "UPDATE tb_login SET senha=? WHERE id_log_pk =?";
+         
+         pstm = conn.prepareStatement(sql);
+         pstm.setString(1, objDTO.setSenha());
+         pstm.setInt(2, objDTO.setChave_primaria());
+         pstm.executeUpdate();
+         
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao alterar a senha: " +  erro);
+        }
+    }
+    
 }
