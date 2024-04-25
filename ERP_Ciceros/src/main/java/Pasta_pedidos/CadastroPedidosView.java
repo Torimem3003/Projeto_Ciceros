@@ -98,8 +98,9 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 135, -1, 16));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 157, 65, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/imagens/ImgOp2.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 780, 690));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iori Carvalho\\Documents\\repositório git\\Projeto_Ciceros\\ERP_Ciceros\\src\\main\\java\\imagem\\imagens\\ImgOp2.png")); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
