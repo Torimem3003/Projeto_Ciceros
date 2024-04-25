@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class usuario_DAO {
     Connection conn = new ConexaoDAO().conectaBD();
     PreparedStatement pstm;
+    ResultSet rs;
     
     
     public ResultSet autenticacaoUsuario(usuario_DTO usuariodto){
@@ -99,6 +100,32 @@ public class usuario_DAO {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao alterar a senha: " +  erro);
         }
+    }
+    
+    
+    public ArrayList<usuario_DTO> ConsultaGeral(){
+        String sql ="SELECT * FROM tb_login";
+        conn = new ConexaoDAO().conectaBD();
+        ArrayList<usuario_DTO> listaDTO = new ArrayList<usuario_DTO>();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                usuario_DTO objDTO = new usuario_DTO();
+                objDTO.getChave_primaria(rs.getInt("id_log_pk"));
+                objDTO.getUsusario(rs.getString("usuario"));
+                objDTO.getSenha(rs.getString("senha"));
+                objDTO.getPergunta(rs.getString("pergunta"));
+                objDTO.getResposta(rs.getString("resposta"));
+                listaDTO.add(objDTO);
+                
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao consulta geral: " +  erro);
+            
+        }
+        return listaDTO;
     }
     
 }

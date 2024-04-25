@@ -4,6 +4,9 @@
  */
 package Pasta_Login;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author vsant
@@ -29,7 +32,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela_dados = new javax.swing.JTable();
+        tabela_consultar_usuario = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
@@ -41,7 +44,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
 
         jLabel2.setText("Consultar Logins");
 
-        tabela_dados.setModel(new javax.swing.table.DefaultTableModel(
+        tabela_consultar_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -51,16 +54,15 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
             new String [] {
                 "ID", "Usuário", "Senha", "Pergunta", "Resposta"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tabela_dados);
+        ));
+        jScrollPane1.setViewportView(tabela_consultar_usuario);
+        if (tabela_consultar_usuario.getColumnModel().getColumnCount() > 0) {
+            tabela_consultar_usuario.getColumnModel().getColumn(0).setResizable(false);
+            tabela_consultar_usuario.getColumnModel().getColumn(1).setResizable(false);
+            tabela_consultar_usuario.getColumnModel().getColumn(2).setResizable(false);
+            tabela_consultar_usuario.getColumnModel().getColumn(3).setResizable(false);
+            tabela_consultar_usuario.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         jLabel3.setText("Usuario");
 
@@ -87,13 +89,9 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_buscar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(260, 260, 260)
+                            .addComponent(btn_buscar)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)))
                 .addContainerGap())
@@ -118,6 +116,27 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        usuario_DTO objDTO = new usuario_DTO();
+        
+        usuario_DAO objDAO = new usuario_DAO();
+        
+        DefaultTableModel model = (DefaultTableModel)tabela_consultar_usuario.getModel();
+        model.setNumRows(0);
+        ArrayList<usuario_DTO> lista_DTO = objDAO.ConsultaGeral();
+        
+        for (int num = 0; num < lista_DTO.size(); num++) {
+            model.addRow(new Object[]{
+            lista_DTO.get(num).setChave_primaria(),
+            lista_DTO.get(num).setUsusario(),
+            lista_DTO.get(num).setSenha(),
+            lista_DTO.get(num).setPergunta(),
+            lista_DTO.get(num).setResposta()
+            
+            });
+            
+            
+        }
+        
         
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -164,6 +183,6 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tabela_dados;
+    private javax.swing.JTable tabela_consultar_usuario;
     // End of variables declaration//GEN-END:variables
 }

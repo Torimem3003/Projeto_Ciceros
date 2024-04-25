@@ -40,6 +40,7 @@ CREATE TABLE tb_cardapio(
 CREATE TABLE tb_pedido(
 	id_ped_pk INT AUTO_INCREMENT PRIMARY KEY,
 	observacao VARCHAR(100),
+    dia_pedido DATETIME,
     cliente INT,
     CONSTRAINT dep_fk FOREIGN KEY (cliente) REFERENCES tb_cliente(id_cli_pk)
 );
@@ -52,6 +53,8 @@ CREATE TABLE tb_pagamento(
     pedido INT,
     CONSTRAINT ped_fk FOREIGN KEY (pedido) REFERENCES tb_pedido(id_ped_pk)
 );
+
+
 
 
 teste para ver se consigo fazer pullrequest
