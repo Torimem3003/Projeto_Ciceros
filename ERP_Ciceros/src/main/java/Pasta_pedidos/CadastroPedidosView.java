@@ -42,6 +42,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         btnPagamento = new java.awt.Button();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,11 +99,14 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 135, -1, 16));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 157, 65, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iori Carvalho\\Documents\\repositório git\\Projeto_Ciceros\\ERP_Ciceros\\src\\main\\java\\imagem\\imagens\\ImgOp2.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iori Carvalho\\Documents\\repositório git\\Projeto_Ciceros\\ERP_Ciceros\\src\\main\\java\\imagem\\imagens\\ImgOp5.png")); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 690));
+
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 690));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -148,6 +152,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
