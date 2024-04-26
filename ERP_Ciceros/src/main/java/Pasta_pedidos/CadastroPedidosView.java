@@ -16,6 +16,9 @@ import javax.swing.table.DefaultTableModel;
 public class CadastroPedidosView extends javax.swing.JFrame {
     
     int ID;
+    int Colunapreco;
+    double getPreco;
+    
     estoque_DTO objDTO = new estoque_DTO();
     Estoque_DAO objDAO = new Estoque_DAO();
 
@@ -44,10 +47,10 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         txtAreaDescricao = new java.awt.TextArea();
         txtObservacao = new javax.swing.JLabel();
         AreaObservacao = new java.awt.TextArea();
-        txtQuantidade = new javax.swing.JLabel();
-        lblQuantidade = new javax.swing.JTextField();
-        txtValor = new javax.swing.JLabel();
-        lblValor = new javax.swing.JTextField();
+        Quantidade = new javax.swing.JLabel();
+        txtQuantidade = new javax.swing.JTextField();
+        Valor = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
         btnSalvar = new java.awt.Button();
         btnPagamento = new java.awt.Button();
         btnAdicionar = new java.awt.Button();
@@ -92,23 +95,23 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         getContentPane().add(txtObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, 20));
         getContentPane().add(AreaObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 240, 140));
 
-        txtQuantidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtQuantidade.setText("Quantidade");
-        getContentPane().add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, -1));
+        Quantidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Quantidade.setText("Quantidade");
+        getContentPane().add(Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, -1));
 
-        lblQuantidade.addActionListener(new java.awt.event.ActionListener() {
+        txtQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblQuantidadeActionPerformed(evt);
+                txtQuantidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 90, -1));
+        getContentPane().add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 90, -1));
 
-        txtValor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtValor.setText("Valor total");
-        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, -1, -1));
+        Valor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Valor.setText("Valor total");
+        getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, -1, -1));
 
-        lblValor.setText(" ");
-        getContentPane().add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 90, -1));
+        txtValor.setText(" ");
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 90, -1));
 
         btnSalvar.setLabel("Salvar");
         getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
@@ -117,6 +120,11 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 90, -1));
 
         btnAdicionar.setLabel("Adicionar");
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
 
         btnExcluir.setLabel("Excluir");
@@ -142,9 +150,9 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblQuantidadeActionPerformed
+    private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblQuantidadeActionPerformed
+    }//GEN-LAST:event_txtQuantidadeActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO código da pesquisa para o banco esta aqui nesse botão de Pesquisar
@@ -184,7 +192,27 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         objDTO = objDAO.ConsultarID(carregar);
         txtAreaDescricao.setText(objDTO.getDescricao());
         
+        Colunapreco = tabelaPedidos.getSelectedRow();
+        getPreco = Double.parseDouble(tabelaPedidos.getModel().getValueAt(Colunapreco, 2).toString());
+        
+        
+        
+    
+        
     }//GEN-LAST:event_btnCarregarActionPerformed
+
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+       double
+                quantidade, resultado;
+       
+       quantidade = Double.parseDouble(txtQuantidade.getText());
+       resultado = (getPreco * quantidade);
+       
+       String teste = String.valueOf(resultado);
+       
+       txtValor.setText(teste);
+        
+    }//GEN-LAST:event_btnAdicionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,6 +251,8 @@ public class CadastroPedidosView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.TextArea AreaObservacao;
+    private javax.swing.JLabel Quantidade;
+    private javax.swing.JLabel Valor;
     private java.awt.Button btnAdicionar;
     private java.awt.Button btnCarregar;
     private java.awt.Button btnExcluir;
@@ -233,13 +263,11 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField lblQuantidade;
-    private javax.swing.JTextField lblValor;
     private javax.swing.JTable tabelaPedidos;
     private java.awt.TextArea txtAreaDescricao;
     private javax.swing.JLabel txtDescricao;
     private javax.swing.JLabel txtObservacao;
-    private javax.swing.JLabel txtQuantidade;
-    private javax.swing.JLabel txtValor;
+    private javax.swing.JTextField txtQuantidade;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
