@@ -82,9 +82,7 @@ public class usuario_DAO {
             JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao consultar o usuario: " +  erro);
             return null;
         }
-        
-
-        
+    
     }
     
     

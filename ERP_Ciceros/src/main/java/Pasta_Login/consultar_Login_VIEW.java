@@ -134,7 +134,6 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
             
             });
             
-            
         }
         
         
