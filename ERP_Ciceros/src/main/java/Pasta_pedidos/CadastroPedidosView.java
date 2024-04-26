@@ -4,11 +4,20 @@
  */
 package Pasta_pedidos;
 
+import Pasta_estoque.Estoque_DAO;
+import Pasta_estoque.estoque_DTO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jeff & Carla
  */
 public class CadastroPedidosView extends javax.swing.JFrame {
+    
+    int ID;
+    estoque_DTO objDTO = new estoque_DTO();
+    Estoque_DAO objDAO = new Estoque_DAO();
 
     /**
      * Creates new form CadastroPedidosView
@@ -26,35 +35,156 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textArea2 = new java.awt.TextArea();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaPedidos = new javax.swing.JTable();
+        txtDescricao = new javax.swing.JLabel();
+        txtAreaDescricao = new java.awt.TextArea();
+        txtObservacao = new javax.swing.JLabel();
+        AreaObservacao = new java.awt.TextArea();
+        txtQuantidade = new javax.swing.JLabel();
+        lblQuantidade = new javax.swing.JTextField();
+        txtValor = new javax.swing.JLabel();
+        lblValor = new javax.swing.JTextField();
+        btnSalvar = new java.awt.Button();
+        btnPagamento = new java.awt.Button();
+        btnAdicionar = new java.awt.Button();
+        btnExcluir = new java.awt.Button();
+        btnPesquisar = new java.awt.Button();
+        btnCarregar = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 0, 51));
+        setPreferredSize(new java.awt.Dimension(720, 480));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(textArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 180, 140));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 714, 10));
 
-        jLabel1.setText("Pedidos");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setText("PEDIDOS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 714, 10));
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        tabelaPedidos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Lanches", "Valor"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelaPedidos);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 260, 400));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 300));
+        txtDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtDescricao.setText("Descrição");
+        getContentPane().add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+        getContentPane().add(txtAreaDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 230, 150));
+
+        txtObservacao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtObservacao.setText("Observação");
+        getContentPane().add(txtObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, 20));
+        getContentPane().add(AreaObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 240, 140));
+
+        txtQuantidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtQuantidade.setText("Quantidade");
+        getContentPane().add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, -1));
+
+        lblQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblQuantidadeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 90, -1));
+
+        txtValor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtValor.setText("Valor total");
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, -1, -1));
+
+        lblValor.setText(" ");
+        getContentPane().add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 90, -1));
+
+        btnSalvar.setLabel("Salvar");
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
+
+        btnPagamento.setLabel("Pagamento");
+        getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 90, -1));
+
+        btnAdicionar.setLabel("Adicionar");
+        getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
+
+        btnExcluir.setLabel("Excluir");
+        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, -1, -1));
+
+        btnPesquisar.setLabel("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, -1, -1));
+
+        btnCarregar.setLabel("Carregar");
+        btnCarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 80, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblQuantidadeActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO código da pesquisa para o banco esta aqui nesse botão de Pesquisar
+        
+        
+       
+        
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        pedidos.setNumRows(0);
+        ArrayList<estoque_DTO> listaDTO = objDAO.Consultaproduto();
+        
+        for (int num = 0; num < listaDTO.size(); num++) {
+            pedidos.addRow(new Object[]{
+            
+                listaDTO.get(num).getId(),
+                listaDTO.get(num).getNome(),
+                listaDTO.get(num).getPreco(),
+                
+            });
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
+        
+        ID = tabelaPedidos.getSelectedRow();
+        int carregar;
+        String consultar;
+
+        consultar =  (tabelaPedidos.getModel().getValueAt(ID, 0).toString());
+        carregar = Integer.parseInt(consultar);
+        objDAO.ConsultarID(carregar);
+        
+        objDTO = objDAO.ConsultarID(carregar);
+        txtAreaDescricao.setText(objDTO.getDescricao());
+        
+    }//GEN-LAST:event_btnCarregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,8 +222,24 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.TextArea AreaObservacao;
+    private java.awt.Button btnAdicionar;
+    private java.awt.Button btnCarregar;
+    private java.awt.Button btnExcluir;
+    private java.awt.Button btnPagamento;
+    private java.awt.Button btnPesquisar;
+    private java.awt.Button btnSalvar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private java.awt.TextArea textArea2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField lblQuantidade;
+    private javax.swing.JTextField lblValor;
+    private javax.swing.JTable tabelaPedidos;
+    private java.awt.TextArea txtAreaDescricao;
+    private javax.swing.JLabel txtDescricao;
+    private javax.swing.JLabel txtObservacao;
+    private javax.swing.JLabel txtQuantidade;
+    private javax.swing.JLabel txtValor;
     // End of variables declaration//GEN-END:variables
 }
