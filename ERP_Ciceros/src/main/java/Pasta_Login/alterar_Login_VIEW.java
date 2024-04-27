@@ -39,16 +39,17 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_pergunta = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        btn_salvar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btn_salvar = new javax.swing.JButton();
         txt_resposta = new javax.swing.JTextField();
         txt_senha = new javax.swing.JPasswordField();
         txt_confirmacao_senha = new javax.swing.JPasswordField();
@@ -57,46 +58,75 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("A pergunta é");
+        setMaximumSize(new java.awt.Dimension(720, 480));
+        setMinimumSize(new java.awt.Dimension(720, 480));
+        setPreferredSize(new java.awt.Dimension(720, 480));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_pergunta.setColumns(20);
         txt_pergunta.setRows(5);
         jScrollPane1.setViewportView(txt_pergunta);
 
-        jLabel2.setText("Insira o usuario");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 320, -1));
 
         txt_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_usuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 322, -1));
 
-        btn_buscar.setText("Buscar");
+        btn_buscar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_buscar.setText("BUSCAR");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
 
-        jLabel3.setText("Alterar Senha");
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel6.setText("RESPOSTA");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
-        btn_salvar.setText("salvar");
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel5.setText("CONFIRMAR");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel4.setText("NOVA SENHA");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel3.setText("ALTERAR SENHA");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel2.setText("USUÁRIO");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel1.setText("PERGUNTA");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+
+        btn_salvar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_salvar.setText("SALVAR");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("Nova senha:");
-
-        jLabel5.setText("Conf: senha");
+        getContentPane().add(btn_salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, -1, -1));
 
         txt_resposta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_respostaActionPerformed(evt);
             }
         });
+        getContentPane().add(txt_resposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 151, -1));
+        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 151, -1));
+        getContentPane().add(txt_confirmacao_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 153, -1));
 
         jLabel6.setText("Resposta");
 
@@ -195,6 +225,7 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed

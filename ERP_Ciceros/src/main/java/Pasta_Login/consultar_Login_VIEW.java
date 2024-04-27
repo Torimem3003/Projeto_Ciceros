@@ -41,6 +41,15 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(720, 480));
+        setMinimumSize(new java.awt.Dimension(720, 480));
+        setPreferredSize(new java.awt.Dimension(720, 480));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel2.setText("CONSULTAR USUÁRIOS");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 290, -1));
 
         tabela_consultar_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -62,15 +71,36 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
             tabela_consultar_usuario.getColumnModel().getColumn(4).setMaxWidth(0);
         }
 
-        jLabel3.setText("Usuario");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 660, 270));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 155, -1));
 
-        btn_buscar.setText("Buscar");
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel3.setText("USUÁRIO");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+
+        btn_buscar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_buscar.setText("BUSCAR");
+        btn_buscar.setMaximumSize(null);
+        btn_buscar.setMinimumSize(new java.awt.Dimension(100, 25));
+        btn_buscar.setPreferredSize(new java.awt.Dimension(100, 25));
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, 30));
 
+        jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jButton2.setText("ALTERAR");
+        jButton2.setMaximumSize(new java.awt.Dimension(100, 25));
+        jButton2.setMinimumSize(new java.awt.Dimension(100, 25));
+        jButton2.setPreferredSize(new java.awt.Dimension(100, 25));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, -1, 30));
         btn_alterar_login.setText("Alterar");
         btn_alterar_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +146,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
@@ -140,6 +171,10 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
 
             }     
     }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btn_alterar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_loginActionPerformed
        String pegar_id_da_tabela;

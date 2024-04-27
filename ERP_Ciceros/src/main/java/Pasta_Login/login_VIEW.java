@@ -31,114 +31,83 @@ public class login_VIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
-        btn_login = new javax.swing.JButton();
-        btn_recuperar_senha = new javax.swing.JButton();
-        btn_sair = new javax.swing.JButton();
         txt_senha = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btn_sair = new javax.swing.JButton();
+        btn_recuperar_senha = new javax.swing.JButton();
+        btn_login = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 156, 98));
+        setMaximumSize(new java.awt.Dimension(720, 480));
+        setMinimumSize(new java.awt.Dimension(720, 480));
+        setPreferredSize(new java.awt.Dimension(720, 480));
+        setResizable(false);
+        setSize(new java.awt.Dimension(720, 480));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 210, -1));
+        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 210, -1));
 
-        jLabel1.setText("Tela de Login");
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel3.setText("SENHA");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        jLabel2.setText("Usuario");
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel2.setText("USUÁRIO");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        jLabel3.setText("Senha");
-
-        btn_login.setText("Logar");
-        btn_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_loginActionPerformed(evt);
-            }
-        });
-
-        btn_recuperar_senha.setText("Esqueceu a senha");
-        btn_recuperar_senha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_recuperar_senhaActionPerformed(evt);
-            }
-        });
-
-        btn_sair.setText("sair");
+        btn_sair.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_sair.setText("SAIR");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 170, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(btn_recuperar_senha))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_usuario)
-                            .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_sair)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_login)))
-                .addContainerGap(97, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(132, 132, 132))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_recuperar_senha)
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_login)
-                            .addComponent(btn_sair))
-                        .addGap(35, 35, 35))))
-        );
+        btn_recuperar_senha.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_recuperar_senha.setText("RECUPERAR SENHA");
+        btn_recuperar_senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_recuperar_senhaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_recuperar_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+
+        btn_login.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_login.setText("ENTRAR");
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 170, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("LOGIN");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 290, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-            Logar();
-       
-    }//GEN-LAST:event_btn_loginActionPerformed
-
-    private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_recuperar_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recuperar_senhaActionPerformed
             alterar_Login_VIEW telaAlterar = new alterar_Login_VIEW();
             telaAlterar.setLocationRelativeTo(null);
             telaAlterar.setVisible(true);
     }//GEN-LAST:event_btn_recuperar_senhaActionPerformed
+
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        Logar();
+    }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_sairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,9 +148,9 @@ public class login_VIEW extends javax.swing.JFrame {
     private javax.swing.JButton btn_login;
     private javax.swing.JButton btn_recuperar_senha;
     private javax.swing.JButton btn_sair;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField txt_senha;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
