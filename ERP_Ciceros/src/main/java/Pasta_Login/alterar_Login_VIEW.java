@@ -5,6 +5,7 @@
 package Pasta_Login;
 
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,13 +14,21 @@ import java.sql.ResultSet;
 public class alterar_Login_VIEW extends javax.swing.JFrame {
 
     usuario_DTO objusuarioDTO = new usuario_DTO();
-    
+    usuario_DAO objDAO = new usuario_DAO();
+    String usuario,senha,confirmacao_senha,pergunta,resposta;
+    int ID;
     /**
      * Creates new form alterar_Login_VIEW
      */
     public alterar_Login_VIEW() {
         initComponents();
+        
     }
+    
+      public void exportarID(usuario_DTO objDTO){
+            lbl_ID.setText(Integer.toString(objDTO.setChave_primaria()));
+            ID=objDTO.setChave_primaria();
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +53,8 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         txt_senha = new javax.swing.JPasswordField();
         txt_confirmacao_senha = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
+        lbl_ID = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +100,8 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
 
         jLabel6.setText("Resposta");
 
+        jLabel7.setText("ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,49 +127,56 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
                                             .addComponent(txt_senha, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
                                 .addGap(53, 53, 53)
                                 .addComponent(btn_salvar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 4, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btn_buscar)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(348, 348, 348))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txt_usuario)))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_buscar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_usuario))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
                         .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btn_buscar)
+                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(82, 82, 82)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_resposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_resposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(29, 29, 29)
+                        .addComponent(btn_buscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -182,45 +202,67 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_usuarioActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-         
-        usuario_DTO objDTO = new usuario_DTO();
+         if(ID==0){
+              usuario_DTO objDTO = new usuario_DTO();
         
-        String senha="",confirmacao_senha="",resposta="",resposta_do_bd = objusuarioDTO.setResposta();
-        
-        int id = objusuarioDTO.setChave_primaria();
-         
-         senha = new String(txt_senha.getPassword());
-         confirmacao_senha = new String(txt_confirmacao_senha.getPassword());  
-         resposta = txt_resposta.getText();
-         
-         objDTO.getSenha(senha);
-         objDTO.getResposta(resposta);
-         objDTO.getChave_primaria(id);
-         
-         if (resposta_do_bd.equals(resposta)) {
-                if (senha.equals(confirmacao_senha)) {
+            String senha="",confirmacao_senha="",resposta="",resposta_do_bd = objusuarioDTO.setResposta();
 
-                usuario_DAO objDAO = new usuario_DAO();
-                objDAO.alterarSenha(objDTO);
+            int id = objusuarioDTO.setChave_primaria();
+
+             senha = new String(txt_senha.getPassword());
+             confirmacao_senha = new String(txt_confirmacao_senha.getPassword());  
+             resposta = txt_resposta.getText();
+
+             objDTO.getSenha(senha);
+             objDTO.getResposta(resposta);
+             objDTO.getChave_primaria(id);
+
+             if (resposta_do_bd.equals(resposta)) {
+                    if (senha.equals(confirmacao_senha)) {
+
+                    usuario_DAO objDAO = new usuario_DAO();
+                    objDAO.alterarSenha(objDTO);
+                }
             }
-        }
+         }
          
+            else if(ID != 0){
+           
+           confirmacao_senha =new String( txt_confirmacao_senha.getPassword());
+           senha = new String(txt_senha.getPassword());
+           if(senha.equals(confirmacao_senha)){
+                usuario=txt_usuario.getText();
+                pergunta = txt_pergunta.getText();
+                resposta = txt_resposta.getText();
+
+                objusuarioDTO.getUsusario(usuario);
+                objusuarioDTO.getSenha(senha);
+                objusuarioDTO.getPergunta(pergunta);
+                objusuarioDTO.getResposta(resposta);
+                objusuarioDTO.getChave_primaria(ID);
+           
+                objDAO.alterar_login_Completo(objusuarioDTO);
+           }
+               
+           else{
+               JOptionPane.showMessageDialog(null, "A senha está errada.");
+           }
+           
+        }
+              
         
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        String usuario;
-        
-        
-        usuario = txt_usuario.getText();   
-        
-        usuario_DAO objDAO = new usuario_DAO();
-        
-        objusuarioDTO = objDAO.consultarUsuario(usuario);
-        
-        txt_pergunta.setText(objusuarioDTO.setPergunta());
-        
+       if(ID==0){
+           
+            usuario = txt_usuario.getText();   
        
+            objusuarioDTO = objDAO.consultarUsuario(usuario);
+        
+            txt_pergunta.setText(objusuarioDTO.setPergunta());
+       }
+    
         
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -258,7 +300,7 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new alterar_Login_VIEW().setVisible(true);
+            new alterar_Login_VIEW().setVisible(true);
             }
         });
     }
@@ -272,7 +314,9 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_ID;
     private javax.swing.JPasswordField txt_confirmacao_senha;
     private javax.swing.JTextArea txt_pergunta;
     private javax.swing.JTextField txt_resposta;

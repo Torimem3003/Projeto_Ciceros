@@ -12,13 +12,13 @@ import javax.swing.table.DefaultTableModel;
  * @author vsant
  */
 public class consultar_Login_VIEW extends javax.swing.JFrame {
-
     /**
      * Creates new form consultar_Login_VIEW
      */
     public consultar_Login_VIEW() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,19 +30,17 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela_consultar_usuario = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        txt_usuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_alterar_login = new javax.swing.JButton();
+        btn_excluir = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel2.setText("Consultar Logins");
 
         tabela_consultar_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,9 +57,9 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         if (tabela_consultar_usuario.getColumnModel().getColumnCount() > 0) {
             tabela_consultar_usuario.getColumnModel().getColumn(0).setResizable(false);
             tabela_consultar_usuario.getColumnModel().getColumn(1).setResizable(false);
-            tabela_consultar_usuario.getColumnModel().getColumn(2).setResizable(false);
+            tabela_consultar_usuario.getColumnModel().getColumn(2).setMaxWidth(0);
             tabela_consultar_usuario.getColumnModel().getColumn(3).setResizable(false);
-            tabela_consultar_usuario.getColumnModel().getColumn(4).setResizable(false);
+            tabela_consultar_usuario.getColumnModel().getColumn(4).setMaxWidth(0);
         }
 
         jLabel3.setText("Usuario");
@@ -73,7 +71,14 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Alterar");
+        btn_alterar_login.setText("Alterar");
+        btn_alterar_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterar_loginActionPerformed(evt);
+            }
+        });
+
+        btn_excluir.setText("Excluir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,30 +88,28 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addContainerGap()
                         .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_buscar)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)))
+                        .addComponent(btn_buscar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_alterar_login)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_excluir)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addContainerGap(84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(btn_buscar)
-                    .addComponent(jButton2))
+                    .addComponent(btn_alterar_login)
+                    .addComponent(btn_excluir))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -116,6 +119,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        
         usuario_DTO objDTO = new usuario_DTO();
         
         usuario_DAO objDAO = new usuario_DAO();
@@ -124,21 +128,45 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         model.setNumRows(0);
         ArrayList<usuario_DTO> lista_DTO = objDAO.ConsultaGeral();
         
-        for (int num = 0; num < lista_DTO.size(); num++) {
-            model.addRow(new Object[]{
-            lista_DTO.get(num).setChave_primaria(),
-            lista_DTO.get(num).setUsusario(),
-            lista_DTO.get(num).setSenha(),
-            lista_DTO.get(num).setPergunta(),
-            lista_DTO.get(num).setResposta()
-            
-            });
-            
-        }
-        
-        
+            for (int num = 0; num < lista_DTO.size(); num++) {
+                model.addRow(new Object[]{
+                lista_DTO.get(num).setChave_primaria(),
+                lista_DTO.get(num).setUsusario(),
+                lista_DTO.get(num).setSenha(),
+                lista_DTO.get(num).setPergunta(),
+                lista_DTO.get(num).setResposta()
+
+                });
+
+            }     
     }//GEN-LAST:event_btn_buscarActionPerformed
 
+    private void btn_alterar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_loginActionPerformed
+       String pegar_id_da_tabela;
+       usuario_DTO objDTO = new usuario_DTO();
+       
+       int ID = tabela_consultar_usuario.getSelectedRow();
+  
+       pegar_id_da_tabela = (tabela_consultar_usuario.getModel().getValueAt(ID,0).toString());
+       
+       int carregar =Integer.parseInt(pegar_id_da_tabela);
+      
+       
+      if(carregar != 0){
+          
+          alterar_Login_VIEW telaLogin = new alterar_Login_VIEW();
+          telaLogin.setLocationRelativeTo(null);
+          telaLogin.setVisible(true);
+          
+          objDTO.getChave_primaria(carregar);
+          
+          telaLogin.exportarID(objDTO);
+       }
+       
+       
+    }//GEN-LAST:event_btn_alterar_loginActionPerformed
+    
+     
     /**
      * @param args the command line arguments
      */
@@ -175,13 +203,13 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_alterar_login;
     private javax.swing.JButton btn_buscar;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_excluir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabela_consultar_usuario;
+    private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
 }
