@@ -147,32 +147,5 @@ public class usuario_DAO {
     }
     
     
-    public usuario_DTO consultarUsuario_com_Filtro(String usuario){
-        
-        //Testar se esse código funciona caso não arrumar
-        usuario_DTO objdto = new usuario_DTO();
-        
-        String sql = "select * from tb_login where usuario like";
-        
-        try {
-         pstm = conn.prepareStatement(sql);
-         pstm.setString(1, usuario);
-         
-         ResultSet rs = pstm.executeQuery();
-         if(rs.next()){
-         objdto.getUsusario(rs.getString("usuario"));
-         objdto.getPergunta(rs.getString("pergunta"));  
-         objdto.getResposta(rs.getString("resposta"));
-         objdto.getChave_primaria(rs.getInt("id_log_pk"));
-         }
-         return objdto;
-            
-        } catch (SQLException erro) {
-            
-            JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao consultar o usuario: " +  erro);
-            return null;
-        }
-    
-    }
        
 }
