@@ -4,16 +4,29 @@
  */
 package Pasta_pedidos;
 
+import Pasta_estoque.Estoque_DAO;
+import Pasta_estoque.estoque_DTO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jeff & Carla
  */
 public class CadastroPedidosView extends javax.swing.JFrame {
+    
+    int ID;
+    int Colunapreco;
+    double getPreco;
+    
+    estoque_DTO objDTO = new estoque_DTO();
+    Estoque_DAO objDAO = new Estoque_DAO();
 
     /**
      * Creates new form CadastroPedidosView
      */
     public CadastroPedidosView() {
+        
         initComponents();
     }
 
@@ -26,39 +39,41 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        txtAreadescricao = new java.awt.TextArea();
-        idTabela = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaPedidos = new javax.swing.JTable();
         txtDescricao = new javax.swing.JLabel();
-        BarraSeparadacima = new javax.swing.JSeparator();
-        txtObservacao = new java.awt.Label();
-        textArea1 = new java.awt.TextArea();
+        txtAreaDescricao = new java.awt.TextArea();
+        txtObservacao = new javax.swing.JLabel();
+        AreaObservacao = new java.awt.TextArea();
+        Quantidade = new javax.swing.JLabel();
+        txtQuantidade = new javax.swing.JTextField();
+        Valor = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
-        lblValor = new javax.swing.JLabel();
         btnSalvar = new java.awt.Button();
         btnPagamento = new java.awt.Button();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        btnAdicionar = new java.awt.Button();
+        btnExcluir = new java.awt.Button();
+        btnPesquisar = new java.awt.Button();
+        btnCarregar = new java.awt.Button();
+        btnLimpar = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(720, 480));
-        setMinimumSize(new java.awt.Dimension(720, 480));
-        setPreferredSize(new java.awt.Dimension(720, 480));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 1250, 10));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PEDIDOS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 41, -1, -1));
-        getContentPane().add(txtAreadescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 135, 230, 233));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1250, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 37, 1250, -1));
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaPedidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -66,48 +81,181 @@ public class CadastroPedidosView extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID", "Lanche", "Preço"
+                "ID", "Lanches", "Valor"
             }
         ));
-        idTabela.setViewportView(tabela);
+        jScrollPane1.setViewportView(tabelaPedidos);
 
-        getContentPane().add(idTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 135, 240, 508));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 300, 590));
 
-        txtDescricao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtDescricao.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtDescricao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDescricao.setText("Descrição");
-        getContentPane().add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 112, -1, -1));
-        getContentPane().add(BarraSeparadacima, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 84, 617, 10));
+        getContentPane().add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 510, -1));
 
-        txtObservacao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtAreaDescricao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(txtAreaDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 520, 200));
+
+        txtObservacao.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtObservacao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtObservacao.setText("Observação");
-        getContentPane().add(txtObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 395, -1, -1));
-        getContentPane().add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 423, 239, 221));
-        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 622, -1, -1));
+        getContentPane().add(txtObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 520, 20));
 
-        lblValor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblValor.setText("Valor");
-        getContentPane().add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 596, -1, -1));
+        AreaObservacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(AreaObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 530, 240));
 
+        Quantidade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Quantidade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Quantidade.setText("Quantidade");
+        getContentPane().add(Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 60, 150, -1));
+
+        txtQuantidade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQuantidadeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 90, 100, 40));
+
+        Valor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Valor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Valor.setText("Valor total");
+        getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 550, 140, 20));
+
+        txtValor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtValor.setText(" ");
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 582, 110, 40));
+
+        btnSalvar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnSalvar.setLabel("Salvar");
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 654, -1, -1));
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 610, 80, 40));
 
+        btnPagamento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnPagamento.setLabel("Pagamento");
-        getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 654, -1, -1));
+        getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 630, 110, 40));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("Quantidade");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 135, -1, 16));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 157, 65, -1));
+        btnAdicionar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnAdicionar.setLabel("Adicionar");
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 140, 100, 40));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iori Carvalho\\Documents\\repositório git\\Projeto_Ciceros\\ERP_Ciceros\\src\\main\\java\\imagem\\imagens\\ImgOp5.png")); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 690));
+        btnExcluir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnExcluir.setLabel("Excluir");
+        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 610, 80, 40));
 
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        btnPesquisar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPesquisar.setLabel("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 610, 90, 40));
+
+        btnCarregar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCarregar.setLabel("Carregar");
+        btnCarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, 90, 40));
+
+        btnLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnLimpar.setLabel("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 90, 40));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQuantidadeActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO código da pesquisa para o banco esta aqui nesse botão de Pesquisar
+        
+        
+       
+        
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        pedidos.setNumRows(0);
+        ArrayList<estoque_DTO> listaDTO = objDAO.Consultaproduto();
+        
+        for (int num = 0; num < listaDTO.size(); num++) {
+            pedidos.addRow(new Object[]{
+            
+                listaDTO.get(num).getId(),
+                listaDTO.get(num).getNome(),
+                listaDTO.get(num).getPreco(),
+                
+            });
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
+        
+        ID = tabelaPedidos.getSelectedRow();
+        int carregar;
+        String consultar;
+
+        consultar =  (tabelaPedidos.getModel().getValueAt(ID, 0).toString());
+        carregar = Integer.parseInt(consultar);
+        objDAO.ConsultarID(carregar);
+        
+        objDTO = objDAO.ConsultarID(carregar);
+        txtAreaDescricao.setText(objDTO.getDescricao());
+        
+        Colunapreco = tabelaPedidos.getSelectedRow();
+        getPreco = Double.parseDouble(tabelaPedidos.getModel().getValueAt(Colunapreco, 2).toString());
+        
+        
+        
+    
+        
+    }//GEN-LAST:event_btnCarregarActionPerformed
+
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+       double
+                quantidade, resultado;
+       
+       quantidade = Double.parseDouble(txtQuantidade.getText());
+       resultado = (getPreco * quantidade);
+       
+       String teste = String.valueOf(resultado);
+       
+       txtValor.setText(teste);
+       
+       
+    }//GEN-LAST:event_btnAdicionarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        
+    txtAreaDescricao.setText("");
+    AreaObservacao.setText("");
+    
+    // Limpa o campo de quantidade
+    txtQuantidade.setText("");
+    
+    // Limpa o campo de valor
+    txtValor.setText("");
+
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,25 +291,29 @@ public class CadastroPedidosView extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSeparator BarraSeparadacima;
+    private java.awt.TextArea AreaObservacao;
+    private javax.swing.JLabel Quantidade;
+    private javax.swing.JLabel Valor;
+    private java.awt.Button btnAdicionar;
+    private java.awt.Button btnCarregar;
+    private java.awt.Button btnExcluir;
+    private java.awt.Button btnLimpar;
     private java.awt.Button btnPagamento;
+    private java.awt.Button btnPesquisar;
     private java.awt.Button btnSalvar;
-    private javax.swing.JScrollPane idTabela;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblValor;
-    private javax.swing.JTable tabela;
-    private java.awt.TextArea textArea1;
-    private java.awt.TextArea txtAreadescricao;
+    private javax.swing.JTable tabelaPedidos;
+    private java.awt.TextArea txtAreaDescricao;
     private javax.swing.JLabel txtDescricao;
-    private java.awt.Label txtObservacao;
+    private javax.swing.JLabel txtObservacao;
+    private javax.swing.JTextField txtQuantidade;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
