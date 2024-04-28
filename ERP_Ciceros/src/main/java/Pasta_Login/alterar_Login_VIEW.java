@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author vsant
  */
 public class alterar_Login_VIEW extends javax.swing.JFrame {
-
+    
     usuario_DTO objusuarioDTO = new usuario_DTO();
     usuario_DAO objDAO = new usuario_DAO();
     String usuario,senha,confirmacao_senha,pergunta,resposta;
@@ -39,98 +39,65 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_pergunta = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         btn_salvar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         txt_resposta = new javax.swing.JTextField();
         txt_senha = new javax.swing.JPasswordField();
         txt_confirmacao_senha = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         lbl_ID = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(720, 480));
-        setMinimumSize(new java.awt.Dimension(720, 480));
-        setPreferredSize(new java.awt.Dimension(720, 480));
-        setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("A pergunta é");
 
         txt_pergunta.setColumns(20);
         txt_pergunta.setRows(5);
         jScrollPane1.setViewportView(txt_pergunta);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 320, -1));
+        jLabel2.setText("Insira o usuario");
 
         txt_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_usuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 322, -1));
 
-        btn_buscar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btn_buscar.setText("BUSCAR");
+        btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel6.setText("RESPOSTA");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+        jLabel3.setText("Alterar Senha");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel5.setText("CONFIRMAR");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel4.setText("NOVA SENHA");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel3.setText("ALTERAR SENHA");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel2.setText("USUÁRIO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel1.setText("PERGUNTA");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
-
-        btn_salvar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btn_salvar.setText("SALVAR");
+        btn_salvar.setText("salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, -1, -1));
+
+        jLabel4.setText("Nova senha:");
+
+        jLabel5.setText("Conf: senha");
 
         txt_resposta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_respostaActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_resposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 151, -1));
-        getContentPane().add(txt_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 151, -1));
-        getContentPane().add(txt_confirmacao_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 153, -1));
 
         jLabel6.setText("Resposta");
-
-        jLabel7.setText("ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,10 +137,8 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_usuario))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)
                         .addComponent(jLabel3)))
                 .addContainerGap())
@@ -184,8 +149,7 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(lbl_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,7 +189,6 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
@@ -233,7 +196,8 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_usuarioActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-         if(ID==0){
+         
+        if(ID==0){
               usuario_DTO objDTO = new usuario_DTO();
         
             String senha="",confirmacao_senha="",resposta="",resposta_do_bd = objusuarioDTO.setResposta();
@@ -256,8 +220,8 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
                 }
             }
          }
-         
-            else if(ID != 0){
+        
+        else if(ID != 0){
            
            confirmacao_senha =new String( txt_confirmacao_senha.getPassword());
            senha = new String(txt_senha.getPassword());
@@ -280,12 +244,14 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
            }
            
         }
-              
+        
+        
+      
         
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-       if(ID==0){
+        if(ID==0){
            
             usuario = txt_usuario.getText();   
        
@@ -293,7 +259,6 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         
             txt_pergunta.setText(objusuarioDTO.setPergunta());
        }
-    
         
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -345,7 +310,6 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_ID;
     private javax.swing.JPasswordField txt_confirmacao_senha;

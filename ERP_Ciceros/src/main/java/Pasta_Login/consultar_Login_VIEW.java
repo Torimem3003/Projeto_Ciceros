@@ -12,13 +12,13 @@ import javax.swing.table.DefaultTableModel;
  * @author vsant
  */
 public class consultar_Login_VIEW extends javax.swing.JFrame {
+
     /**
      * Creates new form consultar_Login_VIEW
      */
     public consultar_Login_VIEW() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,78 +29,44 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela_consultar_usuario = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
         btn_alterar_login = new javax.swing.JButton();
-        btn_excluir = new javax.swing.JButton();
-
-        jLabel1.setText("jLabel1");
+        btn_buscar_com_filtro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(720, 480));
-        setMinimumSize(new java.awt.Dimension(720, 480));
-        setPreferredSize(new java.awt.Dimension(720, 480));
-        setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel2.setText("CONSULTAR USUÁRIOS");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 290, -1));
 
         tabela_consultar_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID", "Usuário", "Senha", "Pergunta", "Resposta"
+                "ID", "Usuario", "Pergunta"
             }
         ));
         jScrollPane1.setViewportView(tabela_consultar_usuario);
-        if (tabela_consultar_usuario.getColumnModel().getColumnCount() > 0) {
-            tabela_consultar_usuario.getColumnModel().getColumn(0).setResizable(false);
-            tabela_consultar_usuario.getColumnModel().getColumn(1).setResizable(false);
-            tabela_consultar_usuario.getColumnModel().getColumn(2).setMaxWidth(0);
-            tabela_consultar_usuario.getColumnModel().getColumn(3).setResizable(false);
-            tabela_consultar_usuario.getColumnModel().getColumn(4).setMaxWidth(0);
-        }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 660, 270));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 155, -1));
+        jLabel1.setText("Usuario");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel3.setText("USUÁRIO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usuarioActionPerformed(evt);
+            }
+        });
 
-        btn_buscar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btn_buscar.setText("BUSCAR");
-        btn_buscar.setMaximumSize(null);
-        btn_buscar.setMinimumSize(new java.awt.Dimension(100, 25));
-        btn_buscar.setPreferredSize(new java.awt.Dimension(100, 25));
+        btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, 30));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton2.setText("ALTERAR");
-        jButton2.setMaximumSize(new java.awt.Dimension(100, 25));
-        jButton2.setMinimumSize(new java.awt.Dimension(100, 25));
-        jButton2.setPreferredSize(new java.awt.Dimension(100, 25));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, -1, 30));
         btn_alterar_login.setText("Alterar");
         btn_alterar_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +74,12 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
             }
         });
 
-        btn_excluir.setText("Excluir");
+        btn_buscar_com_filtro.setText("Buscar Com Filtro");
+        btn_buscar_com_filtro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_com_filtroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,43 +87,46 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_buscar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_alterar_login)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_excluir)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_buscar_com_filtro)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(89, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
                     .addComponent(btn_buscar)
                     .addComponent(btn_alterar_login)
-                    .addComponent(btn_excluir))
+                    .addComponent(btn_buscar_com_filtro))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_usuarioActionPerformed
+
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        
-        usuario_DTO objDTO = new usuario_DTO();
-        
+     
         usuario_DAO objDAO = new usuario_DAO();
         
         DefaultTableModel model = (DefaultTableModel)tabela_consultar_usuario.getModel();
@@ -163,21 +137,17 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
                 model.addRow(new Object[]{
                 lista_DTO.get(num).setChave_primaria(),
                 lista_DTO.get(num).setUsusario(),
-                lista_DTO.get(num).setSenha(),
+                //lista_DTO.get(num).setSenha(),
                 lista_DTO.get(num).setPergunta(),
-                lista_DTO.get(num).setResposta()
+                //lista_DTO.get(num).setResposta()
 
                 });
 
-            }     
+            }  
     }//GEN-LAST:event_btn_buscarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void btn_alterar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_loginActionPerformed
-       String pegar_id_da_tabela;
+        String pegar_id_da_tabela;
        usuario_DTO objDTO = new usuario_DTO();
        
        int ID = tabela_consultar_usuario.getSelectedRow();
@@ -197,11 +167,13 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
           
           telaLogin.exportarID(objDTO);
        }
-       
-       
     }//GEN-LAST:event_btn_alterar_loginActionPerformed
-    
-     
+
+    private void btn_buscar_com_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_com_filtroActionPerformed
+      
+        
+    }//GEN-LAST:event_btn_buscar_com_filtroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,9 +212,8 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alterar_login;
     private javax.swing.JButton btn_buscar;
-    private javax.swing.JButton btn_excluir;
+    private javax.swing.JButton btn_buscar_com_filtro;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela_consultar_usuario;
     private javax.swing.JTextField txt_usuario;
