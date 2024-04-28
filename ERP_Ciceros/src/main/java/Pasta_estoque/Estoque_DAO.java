@@ -60,4 +60,35 @@ public class Estoque_DAO {
         return estoDTO;
     }
     
+    public estoque_DTO ConsultarID(int ID){
+        
+        estoque_DTO objDTO = new estoque_DTO();
+        String SQL = "SELECT * FROM tb_cardapio WHERE id_car_pk = ?";
+        
+        try {
+            Pstm = conn.prepareStatement(SQL);
+            
+            Pstm.setInt(1, ID);
+            
+            ResultSet rs = Pstm.executeQuery();
+            
+            if(rs.next()){
+                
+                objDTO.setNome(rs.getString("nome"));
+                objDTO.setDescricao(rs.getString("descricao"));
+                objDTO.setPreco(rs.getDouble("preco"));
+                
+                
+                
+            }
+            
+            return objDTO;
+            
+        } catch (SQLException erro) {
+            
+            JOptionPane.showMessageDialog(null,"Erro na estoque_DAO ao consultar por id: " + erro);
+            return null;
+        }
+    }
+    
 }

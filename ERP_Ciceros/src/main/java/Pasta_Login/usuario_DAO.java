@@ -71,6 +71,7 @@ public class usuario_DAO {
          
          ResultSet rs = pstm.executeQuery();
          if(rs.next()){
+         objdto.getUsusario(rs.getString("usuario"));
          objdto.getPergunta(rs.getString("pergunta"));  
          objdto.getResposta(rs.getString("resposta"));
          objdto.getChave_primaria(rs.getInt("id_log_pk"));
@@ -82,9 +83,7 @@ public class usuario_DAO {
             JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao consultar o usuario: " +  erro);
             return null;
         }
-        
-
-        
+    
     }
     
     
@@ -128,4 +127,52 @@ public class usuario_DAO {
         return listaDTO;
     }
     
+    public void alterar_login_Completo(usuario_DTO objDTO){
+        String sql ="UPDATE tb_login SET usuario =?, senha=?, pergunta=?,resposta=? WHERE id_log_pk = ?";
+        
+        try {
+             pstm = conn.prepareStatement(sql);
+             pstm.setString(1,objDTO.setUsusario());
+             pstm.setString(2,objDTO.setSenha());
+             pstm.setString(3,objDTO.setPergunta());
+             pstm.setString(4,objDTO.setResposta());
+             pstm.setInt(5,objDTO.setChave_primaria());
+             
+             pstm.executeUpdate();  
+             
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro ao alterar os dados do Login "+ erro);
+        }
+        
+    }
+    
+    
+    public usuario_DTO consultarUsuario_com_Filtro(String usuario){
+        
+        //Testar se esse código funciona caso não arrumar
+        usuario_DTO objdto = new usuario_DTO();
+        
+        String sql = "select * from tb_login where usuario like";
+        
+        try {
+         pstm = conn.prepareStatement(sql);
+         pstm.setString(1, usuario);
+         
+         ResultSet rs = pstm.executeQuery();
+         if(rs.next()){
+         objdto.getUsusario(rs.getString("usuario"));
+         objdto.getPergunta(rs.getString("pergunta"));  
+         objdto.getResposta(rs.getString("resposta"));
+         objdto.getChave_primaria(rs.getInt("id_log_pk"));
+         }
+         return objdto;
+            
+        } catch (SQLException erro) {
+            
+            JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao consultar o usuario: " +  erro);
+            return null;
+        }
+    
+    }
+       
 }
