@@ -17,18 +17,18 @@ CREATE TABLE tb_login(
 
 INSERT INTO tb_login(usuario, senha, pergunta, resposta) VALUES ("root", "123","Qual o nome do seu carro favorito ?", "Opara SS");
 
-
 CREATE TABLE tb_cliente(
 	id_cli_pk INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50),
-	endereco VARCHAR(60),
-    telefone VARCHAR(15)
+	endereco VARCHAR(90),
+    telefone VARCHAR(25)
 );
+
 
 CREATE TABLE tb_cardapio(
 	id_car_pk INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(45),
-    descricao VARCHAR(80),
+    descricao VARCHAR(120),
 	preco DOUBLE
 );
 
@@ -48,5 +48,9 @@ CREATE TABLE tb_pagamento(
     pedido INT,
     CONSTRAINT ped_fk FOREIGN KEY (pedido) REFERENCES tb_pedido(id_ped_pk)
 );
+
+
+
+
 
 
