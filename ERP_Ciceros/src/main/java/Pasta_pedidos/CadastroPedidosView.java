@@ -59,6 +59,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         btnLimpar = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pedidos");
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -125,7 +126,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         txtValor.setText(" ");
         getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 582, 110, 40));
 
-        btnSalvar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnSalvar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnSalvar.setLabel("SALVAR");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,11 +135,11 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 80, 40));
 
-        btnPagamento.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnPagamento.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnPagamento.setLabel("PAGAMENTO");
         getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 630, 110, 40));
 
-        btnAdicionar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnAdicionar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnAdicionar.setLabel("ADICIONAR");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,11 +148,11 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 140, 100, 40));
 
-        btnExcluir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnExcluir.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnExcluir.setLabel("EXCLUIR");
         getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 620, 80, 40));
 
-        btnPesquisar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnPesquisar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnPesquisar.setLabel("PESQUISAR");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +161,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 620, 90, 40));
 
-        btnCarregar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnCarregar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnCarregar.setLabel("CARREGAR");
         btnCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +170,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         getContentPane().add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 620, 90, 40));
 
-        btnLimpar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnLimpar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnLimpar.setLabel("LIMPAR");
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
