@@ -39,9 +39,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaPedidos = new javax.swing.JTable();
         txtDescricao = new javax.swing.JLabel();
@@ -61,16 +59,18 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         btnLimpar = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pedidos");
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
         setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 1250, 10));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PEDIDOS");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1250, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 37, 1250, -1));
 
         tabelaPedidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
@@ -86,27 +86,27 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaPedidos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 300, 590));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 560));
 
-        txtDescricao.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtDescricao.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         txtDescricao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtDescricao.setText("Descrição");
-        getContentPane().add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 510, -1));
+        txtDescricao.setText("DESCRIÇÃO");
+        getContentPane().add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 510, -1));
 
         txtAreaDescricao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(txtAreaDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 520, 200));
+        getContentPane().add(txtAreaDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 480, 200));
 
-        txtObservacao.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtObservacao.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         txtObservacao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtObservacao.setText("Observação");
-        getContentPane().add(txtObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 520, 20));
+        txtObservacao.setText("OBSERVAÇÃO");
+        getContentPane().add(txtObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 520, 20));
 
         AreaObservacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(AreaObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 530, 240));
+        getContentPane().add(AreaObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 480, 240));
 
-        Quantidade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Quantidade.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         Quantidade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Quantidade.setText("Quantidade");
+        Quantidade.setText("QUANTIDADE");
         getContentPane().add(Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 60, 150, -1));
 
         txtQuantidade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -117,25 +117,30 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         getContentPane().add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 90, 100, 40));
 
-        Valor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Valor.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         Valor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Valor.setText("Valor total");
+        Valor.setText("VALOR TOTAL");
         getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 550, 140, 20));
 
         txtValor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtValor.setText(" ");
         getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 582, 110, 40));
 
-        btnSalvar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnSalvar.setLabel("Salvar");
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 610, 80, 40));
+        btnSalvar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnSalvar.setLabel("SALVAR");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 80, 40));
 
-        btnPagamento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnPagamento.setLabel("Pagamento");
+        btnPagamento.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnPagamento.setLabel("PAGAMENTO");
         getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 630, 110, 40));
 
-        btnAdicionar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnAdicionar.setLabel("Adicionar");
+        btnAdicionar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnAdicionar.setLabel("ADICIONAR");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarActionPerformed(evt);
@@ -143,36 +148,36 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         getContentPane().add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 140, 100, 40));
 
-        btnExcluir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnExcluir.setLabel("Excluir");
-        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 610, 80, 40));
+        btnExcluir.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnExcluir.setLabel("EXCLUIR");
+        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 620, 80, 40));
 
-        btnPesquisar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnPesquisar.setLabel("Pesquisar");
+        btnPesquisar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnPesquisar.setLabel("PESQUISAR");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 610, 90, 40));
+        getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 620, 90, 40));
 
-        btnCarregar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnCarregar.setLabel("Carregar");
+        btnCarregar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnCarregar.setLabel("CARREGAR");
         btnCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCarregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, 90, 40));
+        getContentPane().add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 620, 90, 40));
 
-        btnLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnLimpar.setLabel("Limpar");
+        btnLimpar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnLimpar.setLabel("LIMPAR");
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 90, 40));
+        getContentPane().add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 90, 40));
 
         pack();
         setLocationRelativeTo(null);
@@ -257,6 +262,10 @@ public class CadastroPedidosView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnLimparActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -307,8 +316,6 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     private java.awt.Button btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable tabelaPedidos;
     private java.awt.TextArea txtAreaDescricao;
     private javax.swing.JLabel txtDescricao;
