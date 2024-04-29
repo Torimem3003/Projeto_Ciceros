@@ -4,6 +4,8 @@
  */
 package Pasta_pedidos;
 
+import Pasta_Login.usuario_DTO;
+import Pasta_cliente.cliente_DTO;
 import Pasta_estoque.Estoque_DAO;
 import Pasta_estoque.estoque_DTO;
 import java.util.ArrayList;
@@ -26,9 +28,14 @@ public class CadastroPedidosView extends javax.swing.JFrame {
      * Creates new form CadastroPedidosView
      */
     public CadastroPedidosView() {
-        
-        initComponents();
+        initComponents();      
     }
+    
+    
+    public void exportarDados_Cliente(cliente_DTO objDTO){
+            txt_ID_Cliente.setText(Integer.toString(objDTO.getChave_Primaria()));
+            txt_Nome_Cliente.setText(objDTO.getNome());
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,6 +64,10 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         btnPesquisar = new java.awt.Button();
         btnCarregar = new java.awt.Button();
         btnLimpar = new java.awt.Button();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txt_ID_Cliente = new javax.swing.JTextField();
+        txt_Nome_Cliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pedidos");
@@ -93,6 +104,8 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         txtDescricao.setText("DESCRIÇÃO");
         getContentPane().add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 510, -1));
 
+        txtAreaDescricao.setEditable(false);
+        txtAreaDescricao.setEnabled(false);
         txtAreaDescricao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(txtAreaDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 480, 200));
 
@@ -178,6 +191,18 @@ public class CadastroPedidosView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 620, 90, 40));
+
+        jLabel2.setText("ID:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+
+        jLabel3.setText("Nome:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        txt_ID_Cliente.setEnabled(false);
+        getContentPane().add(txt_ID_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 60, -1));
+
+        txt_Nome_Cliente.setEnabled(false);
+        getContentPane().add(txt_Nome_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 90, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -315,6 +340,8 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     private java.awt.Button btnPesquisar;
     private java.awt.Button btnSalvar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaPedidos;
     private java.awt.TextArea txtAreaDescricao;
@@ -322,5 +349,8 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     private javax.swing.JLabel txtObservacao;
     private javax.swing.JTextField txtQuantidade;
     private javax.swing.JTextField txtValor;
+    private javax.swing.JTextField txt_ID_Cliente;
+    private javax.swing.JTextField txt_Nome_Cliente;
     // End of variables declaration//GEN-END:variables
+
 }

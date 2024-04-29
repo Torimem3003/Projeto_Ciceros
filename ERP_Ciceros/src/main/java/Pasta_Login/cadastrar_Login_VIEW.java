@@ -148,7 +148,7 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
         usuario_DTO objusuariodto = new usuario_DTO();
            if (senha.equals(confirmar_senha)) {
                
-               usuario = txt_usuario.getText();
+              usuario = txt_usuario.getText();
               senha = new String(txt_senha.getPassword());
               pergunta = txt_pergunta.getText();
               resposta = txt_resposta.getText();
