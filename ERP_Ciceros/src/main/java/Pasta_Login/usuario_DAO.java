@@ -147,5 +147,51 @@ public class usuario_DAO {
     }
     
     
+    public ArrayList<usuario_DTO> Consulta_Filtro(String filtro){
+        String sql ="SELECT * FROM tb_login where usuario like ? ";
+        conn = new ConexaoDAO().conectaBD();
+        ArrayList<usuario_DTO> listaDTO = new ArrayList<usuario_DTO>();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, "%"+filtro+"%");
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                usuario_DTO objDTO = new usuario_DTO();
+                objDTO.getChave_primaria(rs.getInt("id_log_pk"));
+                objDTO.getUsusario(rs.getString("usuario"));
+                objDTO.getSenha(rs.getString("senha"));
+                objDTO.getPergunta(rs.getString("pergunta"));
+                objDTO.getResposta(rs.getString("resposta"));
+                listaDTO.add(objDTO);
+                
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao consulta geral: " +  erro);
+            
+        }
+        return listaDTO;
+    }
+    
+    
+    public void ExcluirUsuario(int ID){
+        String sql = "DELETE FROM tb_login WHERE id_log_pk = ?";
+        conn = new ConexaoDAO().conectaBD();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, ID);
+            pstm.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null,"Exclusão realizada. ");
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro ao excluir um usuario: " +  erro);
+        }
+        
+        
+    
+    }
+    
+    
        
 }

@@ -32,11 +32,11 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela_consultar_usuario = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        txt_usuario = new javax.swing.JTextField();
-        btn_buscar = new javax.swing.JButton();
+        txt_filtro = new javax.swing.JTextField();
         btn_alterar_login = new javax.swing.JButton();
         btn_buscar_com_filtro = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btn_excluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar Usuários");
@@ -66,21 +66,12 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         jLabel1.setText("USUÁRIO");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 70, -1));
 
-        txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+        txt_filtro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usuarioActionPerformed(evt);
+                txt_filtroActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, 30));
-
-        btn_buscar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btn_buscar.setText("BUSCAR");
-        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
+        getContentPane().add(txt_filtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, 30));
 
         btn_alterar_login.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         btn_alterar_login.setText("ALTERAR");
@@ -98,43 +89,30 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
                 btn_buscar_com_filtroActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_buscar_com_filtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
+        getContentPane().add(btn_buscar_com_filtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         jLabel3.setText("CONSULTAR USUÁRIOS");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
+        btn_excluir.setText("Excluir");
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 80, 30));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
+    private void txt_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_filtroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usuarioActionPerformed
-
-    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-     
-        usuario_DAO objDAO = new usuario_DAO();
-        
-        DefaultTableModel model = (DefaultTableModel)tabela_consultar_usuario.getModel();
-        model.setNumRows(0);
-        ArrayList<usuario_DTO> lista_DTO = objDAO.ConsultaGeral();
-        
-            for (int num = 0; num < lista_DTO.size(); num++) {
-                model.addRow(new Object[]{
-                lista_DTO.get(num).setChave_primaria(),
-                lista_DTO.get(num).setUsusario(),
-                //lista_DTO.get(num).setSenha(),
-                lista_DTO.get(num).setPergunta(),
-                //lista_DTO.get(num).setResposta()
-
-                });
-
-            }  
-    }//GEN-LAST:event_btn_buscarActionPerformed
+    }//GEN-LAST:event_txt_filtroActionPerformed
 
     private void btn_alterar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_loginActionPerformed
-        String pegar_id_da_tabela;
+       String pegar_id_da_tabela;
        usuario_DTO objDTO = new usuario_DTO();
        
        int ID = tabela_consultar_usuario.getSelectedRow();
@@ -157,9 +135,42 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_alterar_loginActionPerformed
 
     private void btn_buscar_com_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_com_filtroActionPerformed
-      
+            usuario_DAO objDAO = new usuario_DAO();
+            String filtro;
+            filtro=txt_filtro.getText();
+        
+        DefaultTableModel model = (DefaultTableModel)tabela_consultar_usuario.getModel();
+        model.setNumRows(0);
+        ArrayList<usuario_DTO> lista_DTO = objDAO.Consulta_Filtro(filtro);
+        
+            for (int num = 0; num < lista_DTO.size(); num++) {
+                model.addRow(new Object[]{
+                lista_DTO.get(num).setChave_primaria(),
+                lista_DTO.get(num).setUsusario(),
+                //lista_DTO.get(num).setSenha(),
+                lista_DTO.get(num).setPergunta(),
+                //lista_DTO.get(num).setResposta()
+
+                });
+
+            }
         
     }//GEN-LAST:event_btn_buscar_com_filtroActionPerformed
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        String Pegar_Id_em_Texto;
+        int ID, linha_Selecionada_da_Tabela;
+        usuario_DAO objDAO = new usuario_DAO();
+        
+        linha_Selecionada_da_Tabela = tabela_consultar_usuario.getSelectedRow();
+        
+        Pegar_Id_em_Texto = (tabela_consultar_usuario.getModel().getValueAt(linha_Selecionada_da_Tabela, 0).toString());
+        
+        ID = Integer.parseInt(Pegar_Id_em_Texto);
+        
+        objDAO.ExcluirUsuario(ID);
+        
+    }//GEN-LAST:event_btn_excluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,12 +209,35 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alterar_login;
-    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_buscar_com_filtro;
+    private javax.swing.JButton btn_excluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela_consultar_usuario;
-    private javax.swing.JTextField txt_usuario;
+    private javax.swing.JTextField txt_filtro;
     // End of variables declaration//GEN-END:variables
+
+public void ConsultaGeral(){
+
+     usuario_DAO objDAO = new usuario_DAO();
+        
+        DefaultTableModel model = (DefaultTableModel)tabela_consultar_usuario.getModel();
+        model.setNumRows(0);
+        ArrayList<usuario_DTO> lista_DTO = objDAO.ConsultaGeral();
+        
+            for (int num = 0; num < lista_DTO.size(); num++) {
+                model.addRow(new Object[]{
+                lista_DTO.get(num).setChave_primaria(),
+                lista_DTO.get(num).setUsusario(),
+                //lista_DTO.get(num).setSenha(),
+                lista_DTO.get(num).setPergunta(),
+                //lista_DTO.get(num).setResposta()
+
+                });
+
+            }
+}
+
+
 }
