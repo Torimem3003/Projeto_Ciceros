@@ -50,7 +50,7 @@ public class usuario_DAO {
             pstm.execute();
             pstm.close();
             
-            
+            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso. " );
             
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao salvar os dados: " +  erro);
@@ -96,6 +96,8 @@ public class usuario_DAO {
          pstm.setInt(2, objDTO.setChave_primaria());
          pstm.executeUpdate();
          
+         JOptionPane.showMessageDialog(null,"Senha alterada com sucesso. " );
+         
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null,"Erro na usuario_DAO ao alterar a senha: " +  erro);
         }
@@ -138,7 +140,9 @@ public class usuario_DAO {
              pstm.setString(4,objDTO.setResposta());
              pstm.setInt(5,objDTO.setChave_primaria());
              
-             pstm.executeUpdate();  
+             pstm.executeUpdate(); 
+             
+             JOptionPane.showMessageDialog(null,"Login alterado com sucesso. " );
              
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null,"Erro ao alterar os dados do Login "+ erro);

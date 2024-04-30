@@ -55,7 +55,7 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         lbl_ID = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualizar Senha");
         setBackground(new java.awt.Color(204, 255, 204));
         setMaximumSize(new java.awt.Dimension(720, 480));

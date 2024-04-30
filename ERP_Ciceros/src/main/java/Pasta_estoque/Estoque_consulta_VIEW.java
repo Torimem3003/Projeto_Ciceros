@@ -13,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
  * @author omaci
  */
 public class Estoque_consulta_VIEW extends javax.swing.JFrame {
-
+    estoque_DTO objDTOAlterar = new estoque_DTO();
+    int ID_Excluir_Dados;
     /**
      * Creates new form Estoque_consulta_VIEW
      */
@@ -35,11 +36,13 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
         txt_Descricao = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
-        txt_Pesquisa = new javax.swing.JTextField();
+        txt_fltro = new javax.swing.JTextField();
         btn_Consulta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btn_alterar = new javax.swing.JButton();
+        btn_excluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cardápio");
         setMaximumSize(new java.awt.Dimension(720, 480));
         setMinimumSize(new java.awt.Dimension(720, 480));
@@ -68,16 +71,21 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
                 "ID", "NOME", "PREÇO"
             }
         ));
+        Tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Carregar_descricao_automatico(evt);
+            }
+        });
         jScrollPane2.setViewportView(Tabela);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 610, 118));
 
-        txt_Pesquisa.addActionListener(new java.awt.event.ActionListener() {
+        txt_fltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_PesquisaActionPerformed(evt);
+                txt_fltroActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_Pesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 209, -1));
+        getContentPane().add(txt_fltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 209, -1));
 
         btn_Consulta.setText("Consulta");
         btn_Consulta.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -100,38 +108,84 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
         jLabel2.setText("PESQUISAR");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
+        btn_alterar.setText("Alterar");
+        btn_alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
+
+        btn_excluir.setText("Excluir");
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_PesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PesquisaActionPerformed
+    private void txt_fltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fltroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_PesquisaActionPerformed
+    }//GEN-LAST:event_txt_fltroActionPerformed
 
     private void btn_ConsultaAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btn_ConsultaAncestorRemoved
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ConsultaAncestorRemoved
 
     private void btn_ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultaActionPerformed
-       int id;
-       String nome, descricao;
-       double preco;
-            
-       Estoque_DAO EstDAO = new Estoque_DAO();
-       
-       DefaultTableModel model = (DefaultTableModel)Tabela.getModel();
-       model.setNumRows(0);
-       List<estoque_DTO> estDTO = EstDAO.Consultaproduto();
-                
-        for (int num = 0; num<estDTO.size();num++) {
-            model.addRow(new Object[]{
-            estDTO.get(num).getId(),
-            estDTO.get(num).getNome(),
-            estDTO.get(num).getPreco()
-            });
-  
-        }
+        Consultar();
     }//GEN-LAST:event_btn_ConsultaActionPerformed
+
+    private void Carregar_descricao_automatico(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Carregar_descricao_automatico
+        Estoque_DAO objDAO = new Estoque_DAO();
+        estoque_DTO objDTO = new estoque_DTO();
+        int Selecionar_linha_clicada;
+        String Capturar_Id_da_Linha,Capturar_nome_da_Linha,Capturar_Preco_da_Linha;
+        
+        Selecionar_linha_clicada = Tabela.getSelectedRow();
+        
+        Capturar_Id_da_Linha = (Tabela.getModel().getValueAt(Selecionar_linha_clicada, 0).toString());
+        Capturar_nome_da_Linha = (Tabela.getModel().getValueAt(Selecionar_linha_clicada, 1).toString());
+        Capturar_Preco_da_Linha = (Tabela.getModel().getValueAt(Selecionar_linha_clicada, 2).toString());
+              
+        
+        objDTO = objDAO.ConsultarID(Integer.parseInt(Capturar_Id_da_Linha));
+        
+        txt_Descricao.setText(objDTO.getDescricao());
+        
+        ID_Excluir_Dados=Integer.parseInt(Capturar_Id_da_Linha);
+        
+        objDTOAlterar.setId(Integer.parseInt(Capturar_Id_da_Linha));
+        objDTOAlterar.setNome(Capturar_nome_da_Linha);
+        objDTOAlterar.setPreco(Double.parseDouble(Capturar_Preco_da_Linha));    
+        
+    }//GEN-LAST:event_Carregar_descricao_automatico
+
+    private void btn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarActionPerformed
+        String Pegar_Descricao="";
+        
+        estoque_Cadastrar_VIEW telaCadastrarProduto = new estoque_Cadastrar_VIEW();
+        telaCadastrarProduto.setLocationRelativeTo(null);
+        telaCadastrarProduto.setVisible(true);
+        
+        Pegar_Descricao = txt_Descricao.getText();
+        objDTOAlterar.setDescricao(Pegar_Descricao);
+                
+        telaCadastrarProduto.exportar_ID_Produto(objDTOAlterar);
+    }//GEN-LAST:event_btn_alterarActionPerformed
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+           Estoque_DAO objDAO = new Estoque_DAO();
+           
+           objDAO.ExcluirProduto(ID_Excluir_Dados);
+           
+           Consultar();
+           SetarCampos();
+    }//GEN-LAST:event_btn_excluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,11 +225,47 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabela;
     private javax.swing.JButton btn_Consulta;
+    private javax.swing.JButton btn_alterar;
+    private javax.swing.JButton btn_excluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txt_Descricao;
-    private javax.swing.JTextField txt_Pesquisa;
+    private javax.swing.JTextField txt_fltro;
     // End of variables declaration//GEN-END:variables
+
+
+    public void Consultar(){
+        int id;
+       String nome, descricao;
+       double preco;
+       
+       nome=txt_fltro.getText();
+            
+       Estoque_DAO EstDAO = new Estoque_DAO();
+       
+       DefaultTableModel model = (DefaultTableModel)Tabela.getModel();
+       model.setNumRows(0);
+       List<estoque_DTO> estDTO = EstDAO.Consultaproduto(nome);
+                
+        for (int num = 0; num<estDTO.size();num++) {
+            model.addRow(new Object[]{
+            estDTO.get(num).getId(),
+            estDTO.get(num).getNome(),
+            estDTO.get(num).getPreco()
+            });
+  
+        }
+        
+        
+    }
+    
+    private void SetarCampos(){
+        txt_Descricao.setText("");
+        txt_fltro.setText("");
+    }
+
+
+
 }

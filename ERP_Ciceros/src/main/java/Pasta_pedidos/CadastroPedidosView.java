@@ -223,10 +223,10 @@ public class CadastroPedidosView extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO código da pesquisa para o banco esta aqui nesse botão de Pesquisar
-
+        String filtro="";
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
         pedidos.setNumRows(0);
-        ArrayList<estoque_DTO> listaDTO = objDAO.Consultaproduto();
+        ArrayList<estoque_DTO> listaDTO = objDAO.Consultaproduto(filtro);
         
         for (int num = 0; num < listaDTO.size(); num++) {
             pedidos.addRow(new Object[]{

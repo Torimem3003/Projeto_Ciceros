@@ -10,12 +10,21 @@ package Pasta_estoque;
  * @author omaci
  */
 public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
-
+        int ID_cliente;
     /**
      * Creates new form estoque_Cadastrar_VIEW
      */
     public estoque_Cadastrar_VIEW() {
         initComponents();
+    }
+    
+    public void exportar_ID_Produto(estoque_DTO objDTO){
+        lbl_ID.setText(Integer.toString(objDTO.getId()));
+        txt_nome_produto.setText(objDTO.getNome());
+        txt_descricao.setText(objDTO.getDescricao());
+        txt_preco_produto.setText(String.valueOf(objDTO.getPreco()));
+        
+        ID_cliente = objDTO.getId();
     }
 
     /**
@@ -36,8 +45,10 @@ public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_descricao = new javax.swing.JTextArea();
         btn_salvar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        lbl_ID = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Produtos");
         setMaximumSize(new java.awt.Dimension(720, 480));
         setMinimumSize(new java.awt.Dimension(720, 480));
@@ -78,27 +89,23 @@ public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
         });
         getContentPane().add(btn_salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
 
+        jLabel5.setText("ID");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 70, 50));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-        String nome, descricao;
-        double preco;
         
-        nome = txt_nome_produto.getText();
-        descricao = txt_descricao.getText();
-        preco = Double.parseDouble(txt_preco_produto.getText());
+        if (ID_cliente == 0) {
+            Salvar_Dados();
+        }
+        else if(ID_cliente != 0){
+            AlterarDados();
+        }
         
-        estoque_DTO objcadastro = new estoque_DTO();
-        
-        
-        objcadastro.setNome(nome);
-        objcadastro.setDescricao(descricao);
-        objcadastro.setPreco(preco);
-        
-        Estoque_DAO EstDAO = new Estoque_DAO();
-        EstDAO.cadastraProduto(objcadastro);
       
     }//GEN-LAST:event_btn_salvarActionPerformed
 
@@ -143,9 +150,54 @@ public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_ID;
     private javax.swing.JTextArea txt_descricao;
     private javax.swing.JTextField txt_nome_produto;
     private javax.swing.JTextField txt_preco_produto;
     // End of variables declaration//GEN-END:variables
+
+    public void AlterarDados(){
+        estoque_DTO objDTO = new estoque_DTO();
+        int ID;
+        String nome, descricao;
+        double preco;
+        Estoque_DAO objDAO = new Estoque_DAO();
+        
+        ID = Integer.parseInt(lbl_ID.getText());
+        nome = txt_nome_produto.getText();
+        descricao = txt_descricao.getText();
+        preco = Double.parseDouble(txt_preco_produto.getText());
+        
+        objDTO.setId(ID);
+        objDTO.setNome(nome);
+        objDTO.setDescricao(descricao);
+        objDTO.setPreco(preco);
+        
+        objDAO.alterar_Cardapio_Completo(objDTO);
+    
+    }
+    
+    public void Salvar_Dados(){
+         String nome, descricao;
+        double preco;
+        
+        nome = txt_nome_produto.getText();
+        descricao = txt_descricao.getText();
+        preco = Double.parseDouble(txt_preco_produto.getText());
+        
+        estoque_DTO objcadastro = new estoque_DTO();
+        
+        
+        objcadastro.setNome(nome);
+        objcadastro.setDescricao(descricao);
+        objcadastro.setPreco(preco);
+        
+        Estoque_DAO EstDAO = new Estoque_DAO();
+        EstDAO.cadastraProduto(objcadastro);
+    
+    }
+
+
 }

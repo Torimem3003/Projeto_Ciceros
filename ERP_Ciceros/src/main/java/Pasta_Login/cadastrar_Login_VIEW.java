@@ -42,12 +42,13 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
         btn_salvar = new javax.swing.JButton();
         btn_fechar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        btn_consultar_usuarios = new javax.swing.JButton();
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar Usuário");
         setMaximumSize(new java.awt.Dimension(720, 480));
         setMinimumSize(new java.awt.Dimension(720, 480));
@@ -123,6 +124,14 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
         jLabel7.setText("RESPOSTA");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
 
+        btn_consultar_usuarios.setText("Consultar Usuarios");
+        btn_consultar_usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultar_usuariosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_consultar_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -165,6 +174,12 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
           
     }//GEN-LAST:event_btn_salvarActionPerformed
 
+    private void btn_consultar_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_usuariosActionPerformed
+        consultar_Login_VIEW tela_consultar_Login = new consultar_Login_VIEW();
+        tela_consultar_Login.setLocationRelativeTo(null);
+        tela_consultar_Login.setVisible(true);
+    }//GEN-LAST:event_btn_consultar_usuariosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,6 +216,7 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_consultar_usuarios;
     private javax.swing.JButton btn_fechar;
     private javax.swing.JButton btn_salvar;
     private javax.swing.JLabel jLabel1;

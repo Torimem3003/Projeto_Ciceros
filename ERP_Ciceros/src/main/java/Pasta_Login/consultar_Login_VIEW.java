@@ -38,7 +38,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btn_excluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultar Usuários");
         setMaximumSize(new java.awt.Dimension(720, 480));
         setMinimumSize(new java.awt.Dimension(720, 480));
@@ -101,7 +101,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
                 btn_excluirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 80, 30));
+        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 80, 30));
 
         pack();
         setLocationRelativeTo(null);
