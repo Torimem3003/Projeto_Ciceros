@@ -112,7 +112,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_filtroActionPerformed
 
     private void btn_alterar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_loginActionPerformed
-       String pegar_id_da_tabela;
+          String pegar_id_da_tabela;
        usuario_DTO objDTO = new usuario_DTO();
        
        int ID = tabela_consultar_usuario.getSelectedRow();
@@ -135,26 +135,7 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_alterar_loginActionPerformed
 
     private void btn_buscar_com_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_com_filtroActionPerformed
-            usuario_DAO objDAO = new usuario_DAO();
-            String filtro;
-            filtro=txt_filtro.getText();
-        
-        DefaultTableModel model = (DefaultTableModel)tabela_consultar_usuario.getModel();
-        model.setNumRows(0);
-        ArrayList<usuario_DTO> lista_DTO = objDAO.Consulta_Filtro(filtro);
-        
-            for (int num = 0; num < lista_DTO.size(); num++) {
-                model.addRow(new Object[]{
-                lista_DTO.get(num).setChave_primaria(),
-                lista_DTO.get(num).setUsusario(),
-                //lista_DTO.get(num).setSenha(),
-                lista_DTO.get(num).setPergunta(),
-                //lista_DTO.get(num).setResposta()
-
-                });
-
-            }
-        
+            Filtrar();
     }//GEN-LAST:event_btn_buscar_com_filtroActionPerformed
 
     private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
@@ -169,7 +150,8 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
         ID = Integer.parseInt(Pegar_Id_em_Texto);
         
         objDAO.ExcluirUsuario(ID);
-        
+        Filtrar();
+        txt_filtro.setText("");
     }//GEN-LAST:event_btn_excluirActionPerformed
 
     /**
@@ -237,7 +219,30 @@ public void ConsultaGeral(){
                 });
 
             }
-}
+    }
+    
 
+    private void Filtrar(){
+        usuario_DAO objDAO = new usuario_DAO();
+            String filtro;
+            filtro=txt_filtro.getText();
+        
+        DefaultTableModel model = (DefaultTableModel)tabela_consultar_usuario.getModel();
+        model.setNumRows(0);
+        ArrayList<usuario_DTO> lista_DTO = objDAO.Consulta_Filtro(filtro);
+        
+            for (int num = 0; num < lista_DTO.size(); num++) {
+                model.addRow(new Object[]{
+                lista_DTO.get(num).setChave_primaria(),
+                lista_DTO.get(num).setUsusario(),
+                //lista_DTO.get(num).setSenha(),
+                lista_DTO.get(num).setPergunta(),
+                //lista_DTO.get(num).setResposta()
+
+                });
+
+            }
+    
+    }
 
 }

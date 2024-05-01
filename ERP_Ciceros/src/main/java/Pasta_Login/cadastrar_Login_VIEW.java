@@ -169,7 +169,10 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
               
               usuario_DAO objusuarioDAO = new usuario_DAO();
               objusuarioDAO.CadastrarUsuario(objusuariodto);
+              Limpar();
             }
+           
+           
               
           
     }//GEN-LAST:event_btn_salvarActionPerformed
@@ -234,4 +237,15 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
     private javax.swing.JPasswordField txt_senha;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
+
+    private void Limpar(){
+    
+        txt_usuario.setText("");
+        txt_senha.setText("");
+        txt_confirmar_senha.setText("");
+        txt_pergunta.setText("");
+        txt_resposta.setText("");
+    }
+
+
 }

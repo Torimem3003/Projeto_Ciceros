@@ -163,8 +163,10 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
 
                     usuario_DAO objDAO = new usuario_DAO();
                     objDAO.alterarSenha(objDTO);
+                    LimparCampos();
                 }
             }
+    
          }
         
         else if(ID != 0){
@@ -183,6 +185,7 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
                 objusuarioDTO.getChave_primaria(ID);
            
                 objDAO.alterar_login_Completo(objusuarioDTO);
+                LimparCampos();
            }
                
            else{
@@ -264,4 +267,15 @@ public class alterar_Login_VIEW extends javax.swing.JFrame {
     private javax.swing.JPasswordField txt_senha;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
+
+
+    private void LimparCampos(){
+    txt_pergunta.setText("");
+    txt_senha.setText("");
+    txt_confirmacao_senha.setText("");
+    txt_pergunta.setText("");
+    txt_resposta.setText("");
+        
+    }
+
 }

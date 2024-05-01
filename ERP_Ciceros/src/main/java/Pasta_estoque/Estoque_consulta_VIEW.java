@@ -41,6 +41,7 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btn_alterar = new javax.swing.JButton();
         btn_excluir = new javax.swing.JButton();
+        btn_cadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cardápio");
@@ -124,6 +125,14 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
         });
         getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
+        btn_cadastrar.setText("Cadastrar");
+        btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -187,6 +196,12 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
            SetarCampos();
     }//GEN-LAST:event_btn_excluirActionPerformed
 
+    private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
+        estoque_Cadastrar_VIEW telaestoque_Cadastrar = new estoque_Cadastrar_VIEW();
+        telaestoque_Cadastrar.setLocationRelativeTo(null);
+        telaestoque_Cadastrar.setVisible(true);
+    }//GEN-LAST:event_btn_cadastrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,6 +241,7 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
     private javax.swing.JTable Tabela;
     private javax.swing.JButton btn_Consulta;
     private javax.swing.JButton btn_alterar;
+    private javax.swing.JButton btn_cadastrar;
     private javax.swing.JButton btn_excluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

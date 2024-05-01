@@ -5,6 +5,8 @@
 package Pasta_menu;
 
 import Pasta_Login.cadastrar_Login_VIEW;
+import Pasta_cliente.cliente_Cadastrar_VIEW;
+import Pasta_estoque.Estoque_consulta_VIEW;
 
 /**
  *
@@ -30,8 +32,8 @@ public class menu_VIEW extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btn_cadastrar_usuario = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_cliente = new javax.swing.JButton();
+        btn_cardapio = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -52,9 +54,19 @@ public class menu_VIEW extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cliente");
+        btn_cliente.setText("Cliente");
+        btn_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clienteActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Estoque");
+        btn_cardapio.setText("Cardapio");
+        btn_cardapio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cardapioActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Pedidos");
 
@@ -73,8 +85,8 @@ public class menu_VIEW extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_cadastrar_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_cardapio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))))
                 .addContainerGap(524, Short.MAX_VALUE))
@@ -87,9 +99,9 @@ public class menu_VIEW extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_cadastrar_usuario)
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(btn_cliente)
                 .addGap(32, 32, 32)
-                .addComponent(jButton2)
+                .addComponent(btn_cardapio)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
@@ -111,6 +123,20 @@ public class menu_VIEW extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         setLocationRelativeTo(null);
     }//GEN-LAST:event_formWindowOpened
+
+    private void btn_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clienteActionPerformed
+       cliente_Cadastrar_VIEW telacliente_Cadastrar= new cliente_Cadastrar_VIEW();
+       telacliente_Cadastrar.setLocationRelativeTo(null);
+       telacliente_Cadastrar.setVisible(true);
+    
+    }//GEN-LAST:event_btn_clienteActionPerformed
+
+    private void btn_cardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cardapioActionPerformed
+       Estoque_consulta_VIEW telaEstoque_consulta = new Estoque_consulta_VIEW();
+       telaEstoque_consulta.setLocationRelativeTo(null);
+       telaEstoque_consulta.setVisible(true);
+    
+    }//GEN-LAST:event_btn_cardapioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,8 +175,8 @@ public class menu_VIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastrar_usuario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_cardapio;
+    private javax.swing.JButton btn_cliente;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

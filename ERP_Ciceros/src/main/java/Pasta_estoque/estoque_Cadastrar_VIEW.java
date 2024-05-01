@@ -103,7 +103,7 @@ public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
             Salvar_Dados();
         }
         else if(ID_cliente != 0){
-            AlterarDados();
+            AlterarDados();        
         }
         
       
@@ -176,7 +176,7 @@ public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
         objDTO.setPreco(preco);
         
         objDAO.alterar_Cardapio_Completo(objDTO);
-    
+        LimparCampos();
     }
     
     public void Salvar_Dados(){
@@ -196,8 +196,14 @@ public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
         
         Estoque_DAO EstDAO = new Estoque_DAO();
         EstDAO.cadastraProduto(objcadastro);
-    
+        LimparCampos();
     }
 
+    private void LimparCampos(){
+        txt_nome_produto.setText("");
+        txt_preco_produto.setText("");
+        txt_descricao.setText("");
+    
+    }
 
 }
