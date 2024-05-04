@@ -59,7 +59,7 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
         txt_Descricao.setRows(5);
         jScrollPane1.setViewportView(txt_Descricao);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 610, 133));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 270, 280));
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,16 +79,17 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Tabela);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 610, 118));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 300, 320));
 
         txt_fltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_fltroActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_fltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 209, -1));
+        getContentPane().add(txt_fltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 209, -1));
 
-        btn_Consulta.setText("Consulta");
+        btn_Consulta.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_Consulta.setText("CONSULTAR");
         btn_Consulta.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
@@ -103,35 +104,38 @@ public class Estoque_consulta_VIEW extends javax.swing.JFrame {
                 btn_ConsultaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+        getContentPane().add(btn_Consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("PESQUISAR");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        btn_alterar.setText("Alterar");
+        btn_alterar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_alterar.setText("ALTERAR");
         btn_alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_alterarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
+        getContentPane().add(btn_alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 120, -1));
 
-        btn_excluir.setText("Excluir");
+        btn_excluir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_excluir.setText("EXCLUIR");
         btn_excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_excluirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
+        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 120, -1));
 
-        btn_cadastrar.setText("Cadastrar");
+        btn_cadastrar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_cadastrar.setText("CADASTRAR");
         btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        getContentPane().add(btn_cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
         pack();
         setLocationRelativeTo(null);

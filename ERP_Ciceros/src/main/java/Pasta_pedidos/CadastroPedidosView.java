@@ -66,10 +66,9 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_ID_Cliente = new javax.swing.JTextField();
         txt_Nome_Cliente = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Pedidos");
+        setTitle("PEDIDOS");
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -80,7 +79,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PEDIDOS");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1250, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1280, -1));
 
         tabelaPedidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
@@ -101,7 +100,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaPedidos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 560));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 550));
 
         txtDescricao.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         txtDescricao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -137,7 +136,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         Valor.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         Valor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Valor.setText("VALOR TOTAL");
-        getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 550, 140, 20));
+        getContentPane().add(Valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 520, 110, 20));
 
         txtValor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtValor.setText(" ");
@@ -147,7 +146,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
                 txtValorActionPerformed(evt);
             }
         });
-        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 582, 110, 40));
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 550, 110, 40));
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnSalvar.setLabel("SALVAR");
@@ -165,7 +164,7 @@ public class CadastroPedidosView extends javax.swing.JFrame {
                 btnPagamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 630, 110, 40));
+        getContentPane().add(btnPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 610, 110, 40));
 
         btnAdicionar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnAdicionar.setLabel("ADICIONAR");
@@ -198,10 +197,12 @@ public class CadastroPedidosView extends javax.swing.JFrame {
         });
         getContentPane().add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 610, 90, 40));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("ID:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        jLabel3.setText("Nome:");
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel3.setText("NOME");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         txt_ID_Cliente.setEnabled(false);
@@ -209,9 +210,6 @@ public class CadastroPedidosView extends javax.swing.JFrame {
 
         txt_Nome_Cliente.setEnabled(false);
         getContentPane().add(txt_Nome_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 90, -1));
-
-        jFormattedTextField1.setText("jFormattedTextField1");
-        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 590, 110, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -359,7 +357,6 @@ public class CadastroPedidosView extends javax.swing.JFrame {
     private java.awt.Button btnPagamento;
     private java.awt.Button btnPesquisar;
     private java.awt.Button btnSalvar;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

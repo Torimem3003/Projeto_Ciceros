@@ -89,9 +89,10 @@ public class estoque_Cadastrar_VIEW extends javax.swing.JFrame {
         });
         getContentPane().add(btn_salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel5.setText("ID");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
-        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 70, 50));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 70, 30));
 
         pack();
         setLocationRelativeTo(null);

@@ -124,13 +124,14 @@ public class cadastrar_Login_VIEW extends javax.swing.JFrame {
         jLabel7.setText("RESPOSTA");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
 
-        btn_consultar_usuarios.setText("Consultar Usuarios");
+        btn_consultar_usuarios.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_consultar_usuarios.setText("CONSULTAR USUARIOS");
         btn_consultar_usuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_consultar_usuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_consultar_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
+        getContentPane().add(btn_consultar_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, -1, 30));
 
         pack();
         setLocationRelativeTo(null);

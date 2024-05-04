@@ -89,19 +89,20 @@ public class consultar_Login_VIEW extends javax.swing.JFrame {
                 btn_buscar_com_filtroActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_buscar_com_filtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
+        getContentPane().add(btn_buscar_com_filtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         jLabel3.setText("CONSULTAR USUÁRIOS");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        btn_excluir.setText("Excluir");
+        btn_excluir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btn_excluir.setText("EXCLUIR");
         btn_excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_excluirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 80, 30));
+        getContentPane().add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
 
         pack();
         setLocationRelativeTo(null);

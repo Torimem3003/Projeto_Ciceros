@@ -35,11 +35,16 @@ public class view_pagamento extends javax.swing.JFrame {
         lblValor = new javax.swing.JLabel();
         txtDinheiro = new javax.swing.JTextField();
         btnCalcular = new javax.swing.JButton();
-        lbl = new javax.swing.JLabel();
-        lblIDPedido = new javax.swing.JLabel();
         btnConsultarPgm = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("PAGAMENTO");
+        setMaximumSize(new java.awt.Dimension(720, 480));
+        setMinimumSize(new java.awt.Dimension(720, 480));
+        setPreferredSize(new java.awt.Dimension(720, 480));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -60,134 +65,85 @@ public class view_pagamento extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblPedidos);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 56, 310, 350));
+
+        mtdPag_comboBox.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         mtdPag_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Debito", "Credito", "Pix", "Dinheiro" }));
         mtdPag_comboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mtdPag_comboBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(mtdPag_comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 140, -1));
 
         txtVlrPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVlrPedidoActionPerformed(evt);
             }
         });
+        getContentPane().add(txtVlrPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 140, -1));
 
-        lblDinheiro.setText("Dinheiro");
+        lblDinheiro.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblDinheiro.setText("DINHEIRO");
+        getContentPane().add(lblDinheiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1));
 
-        lblTroco.setText("Troco");
+        lblTroco.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblTroco.setText("TROCO");
+        getContentPane().add(lblTroco, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
 
         txtVlrTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVlrTotalActionPerformed(evt);
             }
         });
+        getContentPane().add(txtVlrTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 109, -1));
 
         txtTroco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTrocoActionPerformed(evt);
             }
         });
+        getContentPane().add(txtTroco, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 140, -1));
 
-        btnFinalizar.setText("Finalizar");
+        btnFinalizar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnFinalizar.setText("FINALIZAR");
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalizarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, -1, -1));
 
-        lblValor.setText("Valor");
+        lblValor.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lblValor.setText("VALOR");
+        getContentPane().add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, -1, -1));
+        getContentPane().add(txtDinheiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 140, -1));
 
-        btnCalcular.setText("Calcular");
+        btnCalcular.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnCalcular.setText("CALCULAR");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalcularActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
-        lbl.setText("IDPedido");
-
-        lblIDPedido.setText("ID");
-
-        btnConsultarPgm.setText("Consultar pagamentos");
+        btnConsultarPgm.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnConsultarPgm.setText("PAGAMENTOS");
         btnConsultarPgm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarPgmActionPerformed(evt);
             }
         });
+        getContentPane().add(btnConsultarPgm, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblValor)
-                                    .addComponent(txtVlrTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnFinalizar)
-                            .addComponent(lblDinheiro)
-                            .addComponent(lblTroco)
-                            .addComponent(mtdPag_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCalcular)
-                            .addComponent(txtTroco, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                            .addComponent(txtVlrPedido)
-                            .addComponent(txtDinheiro))
-                        .addGap(23, 23, 23)
-                        .addComponent(btnConsultarPgm))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(lbl)
-                        .addGap(121, 121, 121)
-                        .addComponent(lblIDPedido)))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblIDPedido, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(mtdPag_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblDinheiro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVlrPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblTroco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTroco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCalcular)
-                            .addComponent(btnConsultarPgm)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblValor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVlrTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnFinalizar))
-                .addGap(35, 35, 35))
-        );
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("PAGAMENTO");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 720, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mtdPag_comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mtdPag_comboBoxActionPerformed
@@ -227,6 +183,12 @@ public class view_pagamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTrocoActionPerformed
 
+    private void btnConsultarPgmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarPgmActionPerformed
+        consultarPagamento telaConsultaPagamento = new consultarPagamento();
+        telaConsultaPagamento.setLocationRelativeTo(null);
+        telaConsultaPagamento.setVisible(true);
+    }//GEN-LAST:event_btnConsultarPgmActionPerformed
+
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         double vlrPedido = 0, vlrDinheiro = 0, vlrTotal = 0, vlrTroco = 0;
         vlrPedido = Double.parseDouble(txtVlrPedido.getText());
@@ -235,14 +197,7 @@ public class view_pagamento extends javax.swing.JFrame {
         txtTroco.setText(String.valueOf(vlrTroco));
         vlrTotal = vlrPedido;
         txtVlrTotal.setText("150");
-
     }//GEN-LAST:event_btnCalcularActionPerformed
-
-    private void btnConsultarPgmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarPgmActionPerformed
-        consultarPagamento telaConsultaPagamento = new consultarPagamento();
-        telaConsultaPagamento.setLocationRelativeTo(null);
-        telaConsultaPagamento.setVisible(true);
-    }//GEN-LAST:event_btnConsultarPgmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,10 +238,9 @@ public class view_pagamento extends javax.swing.JFrame {
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnConsultarPgm;
     private javax.swing.JButton btnFinalizar;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl;
     private javax.swing.JLabel lblDinheiro;
-    private javax.swing.JLabel lblIDPedido;
     private javax.swing.JLabel lblTroco;
     private javax.swing.JLabel lblValor;
     private javax.swing.JComboBox<String> mtdPag_comboBox;
