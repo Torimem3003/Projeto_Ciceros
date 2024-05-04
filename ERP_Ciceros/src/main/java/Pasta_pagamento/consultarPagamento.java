@@ -38,7 +38,7 @@ public class consultarPagamento extends javax.swing.JFrame {
         txt_data = new javax.swing.JTextField();
         lblID_pedido = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tblPagamento.setAutoCreateRowSorter(true);
         tblPagamento.setModel(new javax.swing.table.DefaultTableModel(

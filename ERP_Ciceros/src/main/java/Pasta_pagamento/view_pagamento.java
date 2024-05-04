@@ -1,4 +1,3 @@
-
 package Pasta_pagamento;
 
 import java.time.LocalDate;
@@ -7,7 +6,7 @@ public class view_pagamento extends javax.swing.JFrame {
 
     int idPedido = 1;
     double valorPedido = 200.50;
-  
+
     /**
      * Creates new form view_pagamento
      */
@@ -38,8 +37,9 @@ public class view_pagamento extends javax.swing.JFrame {
         btnCalcular = new javax.swing.JButton();
         lbl = new javax.swing.JLabel();
         lblIDPedido = new javax.swing.JLabel();
+        btnConsultarPgm = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tblPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,6 +109,13 @@ public class view_pagamento extends javax.swing.JFrame {
 
         lblIDPedido.setText("ID");
 
+        btnConsultarPgm.setText("Consultar pagamentos");
+        btnConsultarPgm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarPgmActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,23 +139,25 @@ public class view_pagamento extends javax.swing.JFrame {
                             .addComponent(lblTroco)
                             .addComponent(mtdPag_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCalcular)
-                            .addComponent(txtDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                            .addComponent(txtTroco)
-                            .addComponent(txtVlrPedido)))
+                            .addComponent(txtTroco, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                            .addComponent(txtVlrPedido)
+                            .addComponent(txtDinheiro))
+                        .addGap(23, 23, 23)
+                        .addComponent(btnConsultarPgm))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addComponent(lbl)
                         .addGap(121, 121, 121)
                         .addComponent(lblIDPedido)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl)
-                    .addComponent(lblIDPedido))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblIDPedido, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -157,14 +166,16 @@ public class view_pagamento extends javax.swing.JFrame {
                         .addComponent(lblDinheiro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtVlrPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblTroco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTroco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(btnCalcular))
+                        .addGap(31, 31, 31)
+                        .addComponent(txtDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCalcular)
+                            .addComponent(btnConsultarPgm)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -188,24 +199,24 @@ public class view_pagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVlrPedidoActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        
+
         String mtdPagamento = "";
         LocalDate data = LocalDate.now();
         double vlrPedido = 0;
         int IDPedido = idPedido;
-        
-          mtdPagamento = (String) mtdPag_comboBox.getSelectedItem();
-          vlrPedido = valorPedido;
-        
+
+        mtdPagamento = (String) mtdPag_comboBox.getSelectedItem();
+        vlrPedido = valorPedido;
+
         pagamento_DTO dto = new pagamento_DTO();
         dto.setData(data);
         dto.setFormaDePagamento(mtdPagamento);
         dto.setIdPedido(IDPedido);
         dto.setValorPedido(valorPedido);
-        
-        pagamentoDAO dao = new pagamentoDAO ();
+
+        pagamentoDAO dao = new pagamentoDAO();
         dao.save(dto);
-        
+
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void txtVlrTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVlrTotalActionPerformed
@@ -217,15 +228,21 @@ public class view_pagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTrocoActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        double vlrPedido = 0, vlrDinheiro = 0, vlrTotal = 0,vlrTroco = 0;
+        double vlrPedido = 0, vlrDinheiro = 0, vlrTotal = 0, vlrTroco = 0;
         vlrPedido = Double.parseDouble(txtVlrPedido.getText());
         vlrDinheiro = Double.parseDouble(txtDinheiro.getText());
         vlrTroco = vlrDinheiro - vlrPedido;
         txtTroco.setText(String.valueOf(vlrTroco));
         vlrTotal = vlrPedido;
         txtVlrTotal.setText("150");
-        
+
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void btnConsultarPgmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarPgmActionPerformed
+        consultarPagamento telaConsultaPagamento = new consultarPagamento();
+        telaConsultaPagamento.setLocationRelativeTo(null);
+        telaConsultaPagamento.setVisible(true);
+    }//GEN-LAST:event_btnConsultarPgmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +281,7 @@ public class view_pagamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnConsultarPgm;
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl;
