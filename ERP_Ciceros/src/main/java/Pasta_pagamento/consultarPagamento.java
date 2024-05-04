@@ -79,18 +79,18 @@ public class consultarPagamento extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, -1, -1));
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, -1));
 
         txt_data.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_dataActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 119, -1));
+        getContentPane().add(txt_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 119, -1));
 
         lblID_pedido.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         lblID_pedido.setText("DATA");
-        getContentPane().add(lblID_pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+        getContentPane().add(lblID_pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
 
         jLabel4.setDisplayedMnemonic('C');
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N

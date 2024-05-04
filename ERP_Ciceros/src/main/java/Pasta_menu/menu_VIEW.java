@@ -36,7 +36,6 @@ public class menu_VIEW extends javax.swing.JFrame {
         btn_cardapio = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -50,12 +49,13 @@ public class menu_VIEW extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setDisplayedMnemonic('M');
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(225, 225, 225));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("MENU");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 720, -1));
 
         btn_cadastrar_usuario.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         btn_cadastrar_usuario.setText("USUÁRIOS");
@@ -64,6 +64,7 @@ public class menu_VIEW extends javax.swing.JFrame {
                 btn_cadastrar_usuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_cadastrar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 150, 30));
 
         btn_cliente.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         btn_cliente.setText("CLIENTES");
@@ -72,6 +73,7 @@ public class menu_VIEW extends javax.swing.JFrame {
                 btn_clienteActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 150, 30));
 
         btn_cardapio.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         btn_cardapio.setText("CARDÁPIO");
@@ -83,6 +85,7 @@ public class menu_VIEW extends javax.swing.JFrame {
                 btn_cardapioActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_cardapio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 150, 30));
 
         jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jButton3.setText("PEDIDOS");
@@ -91,6 +94,7 @@ public class menu_VIEW extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 150, 30));
 
         jButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jButton4.setText("PAGAMENTO");
@@ -99,44 +103,7 @@ public class menu_VIEW extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pasta_menu/ImgMenu.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLabel1)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(490, 490, 490)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_cadastrar_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_cardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(btn_cadastrar_usuario)
-                .addGap(14, 14, 14)
-                .addComponent(btn_cliente)
-                .addGap(54, 54, 54)
-                .addComponent(jButton4))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(jButton3))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel4))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(btn_cardapio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1)
-        );
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 150, 30));
 
         pack();
         setLocationRelativeTo(null);
@@ -217,7 +184,6 @@ public class menu_VIEW extends javax.swing.JFrame {
     private javax.swing.JButton btn_cliente;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
